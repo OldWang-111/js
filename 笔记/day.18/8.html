@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        浅拷贝
+        */
+      var obj = {
+        name: "laoyan",
+        age: "nan",
+        do: function () {
+          console.log("hfwf");
+        },
+        arr: [1, 2, 3, 4, 5],
+      };
+      //起了个名字
+      //   var obj2 = obj;
+      var obj2 = {};
+      //遍历obj 把obj的属性和值一个个拿出来
+      for (var key in obj) {
+        obj2[key] = obj[key];
+      }
+      console.log(obj2);
+      //方法还是共用的
+      console.log(obj.do === obj2.do); //true
+    </script>
+  </body>
+</html>

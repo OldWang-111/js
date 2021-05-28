@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 600px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            display: flex;
+        }
+
+        #left {
+            width: 200px;
+            height: 300px;
+            background-color: hotpink;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        #change {
+            width: 200px;
+            height: 300px;
+            background-color: lawngreen;
+        }
+
+        #change button {
+            display: block;
+            width: 100%;
+            margin: 30px 0;
+        }
+
+        #right {
+            width: 200px;
+            height: 300px;
+            background-color: hotpink;
+            line-height: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div id="left">
+            <p>left的con1</p>
+            <p>left的con2</p>
+            <p>left的con3</p>
+            <p>left的con4</p>
+        </div>
+        <div id="change">
+            <button id="toRight">&gt;&gt;&gt;&gt;</button>
+            <button id="toLeft">&lt;&lt;&lt;&lt;</button>
+        </div>
+        <div id="right">
+            <p>right的con1</p>
+            <p>right的con2</p>
+            <p>right的con3</p>
+            <p>right的con4</p>
+        </div>
+    </div>
+    <script>
+        var oLeft = document.getElementById('left');
+        var oChange = document.getElementById('change');
+        var oRight = document.getElementById('right');
+        var oLeftPs = oLeft.getElementsByTagName("p");
+        var oRightPs = oRight.getElementsByTagName("p");
+        var oToLeft = document.getElementById('toLeft');
+        var oToRight = document.getElementById('toRight');
+
+        // console.log(oRightPs)
+        // console.log(oLeftPs)
+        // for(var i=0;i<)
+    </script>
+</body>
+</html>

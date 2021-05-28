@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        border: 1px solid red;
+        margin: 50px auto;
+      }
+      #q {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: skyblue;
+        top: 40px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div id="q"></div>
+    </div>
+    <script>
+      var oBox = document.getElementById("box");
+      var oq = document.getElementById("q");
+      /* var oX = true;
+      var oY = true;
+      var l = 20;
+      var t = 40; */
+      /*  setInterval(function () {
+        if (oX) {
+          l += 5;
+          if (l >= oBox.offsetWidth - oq.offsetWidth) {
+            l = oBox.offsetWidth - oq.offsetWidth;
+            oX = !oX;
+          }
+        } else {
+          l -= 5;
+          if (l <= 0) {
+            l = 0;
+            oX = !oX;
+          }
+        }
+        if (oY) {
+          t += 5;
+          if (t >= oBox.offsetHeight - oq.offsetHeight) {
+            t = oBox.offsetHeight - oq.offsetHeight;
+            oY = !oY;
+          }
+        } else {
+          t -= 5;
+          if (t <= 0) {
+            t = 0;
+            oY = !oY;
+          }
+        }
+        oq.style.left = l + "px";
+        oq.style.top = t + "px";
+      }, 20); */
+
+      //方法2:
+      var l = 20;
+      var t = 40;
+      var a = 5;
+      var b = 5;
+      setInterval(function () {
+        l += a;
+        t += b;
+        if (l > oBox.offsetWidth - oq.offsetWidth || l <= 0) {
+          a *= -1;
+        }
+        if (t > oBox.offsetHeight - oq.offsetHeight || t <= 0) {
+          b *= -1;
+        }
+        oq.style.left = l + "px";
+        oq.style.top = t + "px";
+      }, 10);
+    </script>
+  </body>
+</html>

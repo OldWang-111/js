@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">点击</button>
+    <script>
+      /* 
+            销毁事件：
+                1.DOM0的销毁事件方式
+                    将事件属性赋值为null即可
+                
+                2.DOM2的销毁方式
+                    使用removeEventListener()
+                        -参数1：事件名
+                        -参数2：事件函数
+
+                3.IE的销毁方式
+                    使用detachEvent（）销毁
+        
+        */
+      /* var oBtn = document.getElementById("btn");
+      oBtn.onclick = function () {
+        console.log("123");
+        oBtn.onclick = null;
+      }; */
+      var oBtn = document.getElementById("btn");
+      function fn() {
+        console.log("12355");
+      }
+      oBtn.addEventListener("click", fn, false);
+      oBtn.onclick = function () {
+        oBtn.removeEventListener("click", fn);
+      };
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      <div id="box"></div>
+    <script>
+    //   var time = new Date("2021-5-6");
+    //   // console.log(time)
+    //   var now = new Date();
+    //   console.log(now)
+    //   var daoJi = time - now;
+    //   console.log(daoJi);
+    var oBox=document.getElementById("box");
+      var timer= setInterval(function () {
+        var now = new Date();
+        var time = new Date("2021-5-6");
+        var daoJi = time - now;
+        // console.log(daoJi);
+        //   clearInterval(timer)
+          var day=parseInt(daoJi/(1000*60*60*24))
+            daoJi=daoJi%(1000*60*60*24);
+            console.log(daoJi);
+            var hours=parseInt(daoJi/(1000*60*60))
+            daoJi=daoJi%(1000*60*60);
+            var min=parseInt(daoJi/(1000*60))
+            daoJi=daoJi%(1000*60);
+            var s=parseInt(daoJi/1000);
+            daoJi=daoJi%1000;
+            var hs=daoJi;
+
+
+          oBox.textContent=day+"天"+hours+"时"+min+"分"+s+"秒"+hs+"毫秒"
+
+      }, 50);
+    </script>
+  </body>
+</html>

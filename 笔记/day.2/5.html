@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <script>
+        /*
+            其他类型转string
+                number转string
+                直接添加引号变成字符串
+                    -全局的方法String()
+                    -除了null和undefined,
+                    其他类型都有toString()方法
+                Boolean number null undefined 
+                都是直接添加引号,变成字符串
+
+            对象 转string
+                -数组: 直接去掉中括号,添加引号,空数组转换为空字符串
+                -对象:所有对象转为[object Object]
+                -函数:直接加引号转换成字符串
+        */ 
+       /*
+            其他类型转number
+                -使用Number方法转换数字
+                console.log(Number("1"))
+
+                -字符串转
+                    能转就转,不能转就是NaN 空的字符串是0
+
+                boolean转数字
+                    true 1   false  0
+                
+                -null undefined 转
+                    null 0  undefined NaN
+
+                对象转数字
+                    -空数组是0,只有一位的数组,把这一位转为数字
+                    -其他的都是NaN
+
+       */
+        /*
+            其他类型转换Boolean
+                -使用Boolean()方法可以进行转换
+                1.number转Boolean
+                    -非0为true 0为false
+                    -NaN为false
+                    
+                2.string转boolean
+                    -空为false  非空为true
+
+                3.undefined 和 null都是false
+                4.object转Boolean 都是true
+        
+        */
+        //1.number转Boolean
+        console.log(Boolean(2));//true
+        console.log(Boolean(-2));//true
+        console.log(Boolean(2.1));//true
+        console.log(Boolean(-2.3));//true
+        console.log(Boolean(Infinity));//true
+        console.log(Boolean(-Infinity));//true
+        console.log(Boolean(NaN));//false
+        console.log(Boolean(0));//false
+
+        //2.string 转 Boolean
+        console.log(Boolean(''))//false
+        console.log(Boolean('  '))//true
+        console.log(Boolean('adhaiud'))//true
+        console.log(Boolean('384298'))//true
+
+        //3.null undefined 
+        console.log(Boolean(null))//false
+        console.log(Boolean(undefined))//false
+        //4. 对象
+        console.log(Boolean([]))//true
+        console.log(Boolean({}))//true
+        console.log(Boolean([123]))//true
+        console.log(Boolean(function(){}))//true
+
+    </script>
+</body>
+</html>

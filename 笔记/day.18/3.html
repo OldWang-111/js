@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            创建对象的方法1:
+                字面量法
+                缺点:代码冗余
+
+
+        */
+      /* var student = {};
+      student.name = "laoyan";
+      student.sex = "nv";
+      student.fn = function () {
+        console.log("123");
+      }; */
+      /*
+        创建对象 方法2:
+            -工厂模式(封装函数)
+            -缺点:无法确定当前对阿宁的构造器是谁
+
+      */
+      /*  function fn(name, sex) {
+        var obj = {};
+        obj.name = name;
+        obj.sex = sex;
+        obj.fn = function () {
+          console.log("123");
+        };
+        return obj;
+      }
+      //一般情况下函数是没有返回值的 需要return一个返回值
+      console.log(fn("haijing", "nv"));
+      var re = fn("haijing", "nv");
+      console.log(re.constructor); */
+
+      /*
+
+      创建对象的方法3:构造函数的方法
+        构造函数:
+            -当函数被new调用的话,这个函数被称作为构造函数
+            -构造函数的特点:
+                1.首字母大写
+                2.构造函数实例化狗(new调用),返回一个实例化对象
+                3.构造桉树中的this指向其实例化的对象
+
+        缺点:
+            -方法无法共享
+      */
+
+      /* function Student(name, age) {
+        this.name = name;
+        console.log(this);
+        this.do = function () {
+          console.log(this);
+        };
+      }
+      console.log(Student.prototype);
+      var re = new Student("laowang", "nan");
+      var re2 = new Student("xiaowang", "nan");
+      console.log(re.__proto__);
+      console.log(re.__proto__ === Student.prototype);
+      console.log(re.do === re2.do); //false
+      console.log(re.constructor === Student); //true */
+
+      /*
+        创建对像方法4:构造函数+原型方法
+
+      */
+      function Student(name, sex) {
+        this.name = name;
+        this.sex = sex;
+      }
+      Student.prototype.do = function () {
+        console.log("jwy");
+      };
+      var re = new Student("laowang", "nan");
+      console.log(re);
+      var re2 = new Student("xiaowang", "nan");
+      console.log(re2);
+      console.log(re.do === re2.do);
+    </script>
+  </body>
+</html>

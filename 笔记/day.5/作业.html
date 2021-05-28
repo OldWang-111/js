@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //求1-n之间所有数的和
+      /* function num(n) {
+        var s = 0;
+        for (var i = 0; i <= n; i++) {
+          s += i;
+        }
+        return s;
+      }
+      var re = num(900);
+      console.log(re); */
+
+      // 求n - m之间所有数的和
+      /*  function num(m, n) {
+        var s = 0;
+        for (var i = m; i <= n; i++) {
+          s += i;
+        }
+        return s;
+      }
+      //函数调用(可以确定是否有返回值，还有传递的参数)
+      var re = num(3, 999);
+      console.log(re); //499497 */
+
+      // 圆的面积
+      /* function yuan(r) {
+        var m =3.14*r*r;
+        return m;
+      }
+      var re = yuan(10);
+      console.log(re); */
+      // 求2个数中的最大值
+      /* function max(a, b) {
+        var m = 0;
+        if (a > b) {
+          m = a;
+          return a;
+        } else {
+          m = b;
+          return b;
+        }
+      }
+      var re = max(50, 9);
+      console.log(re);//50 */
+      // 求3个数中的最大值
+      var m = 0;
+      function max(a, b, c) {
+        if (a > b) {
+          if (a > c) {
+            m = a;
+            return m;
+          } else {
+            m = c;
+            return m;
+          }
+        } else {
+          if (b > c) {
+            m = b;
+            return m;
+          } else {
+            m = c;
+            return m;
+          }
+        }
+      }
+      var re = max(23, 23, 5);
+      console.log(re);
+      // 判断一个数是否是素数(又叫质数， 只能被1和自身整除的数)
+      var v = 0;
+      function zs(a) {
+        if(a==1){
+          alert('是质数')
+          return;
+        }
+        for (var i = 1; i <= a; i++) {
+          
+          if (a % i == 0) {
+            v += 1;
+          }
+        }
+        if(v==2){
+          alert("是质数")
+        }else{
+          alert('不是')
+        }
+      }
+      var re = zs(8);
+
+      // 求任意个数的最大值
+
+      
+      // 求任意个数的和
+    </script>
+  </body>
+</html>

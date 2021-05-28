@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //判断两个数.如果一个是非数字,那么就提示用户,否则就计算两个数字的和
+        //因为表单默认是字符串,所以初始化两个值为字符串
+
+        var num1 = "123";
+        var num2 = "2";
+
+        if (!(isNaN(num1) || isNaN(num2))){
+            alert(+num1 + +num2)
+        }else{
+            alert("请输入数字")
+       }
+
+       //判断闰年:
+            // 年份能够被4整除且不能被100整除,或能被400整除
+            var year = 2018;
+            if(year%4===0 && year%100!==0 || year%400===0){
+                alert("shi")
+            }else{
+                alert("bushi")
+            }
+
+    </script>
+</body>
+</html>

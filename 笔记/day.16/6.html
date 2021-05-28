@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="box">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+    <script>
+      /* 
+        数组的slice方法,如果不传参数的话,会返回和原数组一样的新数组
+        slice方法一定会返回一个数组,所有可以让维数组调用数组的slice方法,即可转变成数组
+
+        
+    */
+      var oBox = document.getElementById("box");
+      var oLis = document.getElementsByTagName("li");
+      console.log(oLis);
+      var re = Array.prototype.slice.call(oLis);
+      console.log(re);
+      var arr = [];
+      Array.prototype.forEach.call(oLis, function (item, index) {
+        arr.push(item);
+      });
+      console.log(arr);
+
+      //面试题
+      function fn1() {
+        console.log(1);
+      }
+      function fn2() {
+        console.log(2);
+      }
+      fn1.call(fn2);
+      fn1.call.call(fn2);
+    </script>
+  </body>
+</html>

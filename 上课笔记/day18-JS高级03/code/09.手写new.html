@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            /*
+                       手写new
+                           - new做了什么？
+                               - 创建了一个对象，并把这个对象返回
+                               - 把构造函数的this指向这个创建的对象
+                               - 将这个对象的原型链修改，将隐式原型指向构造函数的显式原型
+
+                   */
+
+            /* function Person(name, age) {
+                           this.name = name;
+                           this.age = age;
+                           // console.log(this.prototype);
+                           // return 1;
+                       }
+                       Person.prototype.do = function () {
+                           console.log("do");
+                       }; */
+
+            /* var p1 = new Person("laowang", 18);
+                       console.log(Person.prototype === p1.__proto__);
+                       console.log(p1.__proto__);
+            */
+            /* var obj = {};
+                       console.log(Person.prototype); */
+            /* function myNew(constur) {
+                           //1.创建一个对象
+                           var obj = {};
+                           //2.调用构造函数，并把构造函数的this指向当前的对象
+                           var arg = Array.from(arguments).slice(1);
+                           //re就是函数调用后的返回值
+                           var re = constur.apply(obj, arg); //[]
+                           console.log(re);
+                           //3.修改原型链，让obj的隐式原型指向构造函数的显式原型
+                           obj.__proto__ = constur.prototype;
+
+                           //4.返回对象之前，判断构造函数的返回值是基本类型还是对象类型
+                           //如果是对象类型，则直接返回构造函数的返回值，否则返回obj
+                           if (
+                               (typeof re === "object" && re !== null) ||
+                               typeof re === "function"
+                           ) {
+                               //如果是object类型 则直接返回re
+                               return re;
+                           }
+
+                           //如果不符合上边的条件，则返回obj对象
+                           return obj;
+                       }
+
+                       var p2 = myNew(Person, "xiaowang", 20);
+                       console.log(p2); */
+
+            // console.log(p2.do === p1.do); //true
+
+            /* 手写new
+                           - new做了什么？
+                               - 创建了一个对象，并把这个对象返回
+                               - 把构造函数的this指向这个创建的对象
+                               - 将这个对象的原型链修改，将隐式原型指向构造函数的显式原型 */
+            var reset = function (name, age) {
+                this.name = name;
+                this.age = age;
+                return function fn() {
+                    console.log(123);
+                };
+            };
+            /* function myNew(fn) {
+                var obj = {};
+                //接受传入的参数
+                var agr = Array.from(arguments).slice(1);
+                // console.log(agr);
+                //调用后的返回值就是这个new的返回值
+                // console.log(fn);
+                var re = fn.apply(obj, agr);
+                //因为构造函数没有返回值所以是undefined
+                console.log(re);
+                //将obj的隐式原型指向fn的显示原型
+                obj.__proto__ = fn.prototype;
+                console.log(obj);
+                //如果函数返回的是对象则直接返回这个构造函数的返回值
+                //如果基本类型值则直接返回obj对象
+                if (
+                    (typeof re === "object" && re !== "") ||
+                    typeof re === "function"
+                ) {
+                    return re;
+                }
+                //否则返回obj
+                return obj;
+            } */
+            // var re = myNew(reset, "laowang", 18);
+            var re = new reset();
+            console.log(re);
+
+            /* function Par(name, age) {
+                           this.name = name;
+                           this.age = age;
+                       }
+                       var re = new Par("老王", 14);
+                       console.log(re); */
+        </script>
+    </body>
+</html>

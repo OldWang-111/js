@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Function.prototype.myApply = function (context) {
+        //判断类型是不是null undefined
+        if (context === null || context === undefined) {
+          context = window;
+        }
+        //判断是不是基本包装对象 如果是就指向他的包装对象
+        if (typeof context != "object" && typeof context != "function") {
+          context = Object(context);
+        }
+        //如果是对象则直接指向该对象
+        //获取出入的参数,并改变this指向
+        var arg = arguments[1]; //获取的是一个数组
+        //扩展一个属性让它指向调用的函数,则调用ff等于调用了该函数
+        // context.ff = this;
+        //可以使用时间戳转为36进制作为属性的变量名
+        var key = Date.now().toString(36);
+        context[key] = this;
+        //ff先是指向fn 然后通过context调用让他指向context
+        // context.ff();
+        //调用
+        eval("context[key](" + arg.toString() + ")");
+        //删除ff属性
+        delete context[key];
+      };
+
+      function fn(a, b) {
+        console.log(this, a + b);
+      }
+      fn.myApply([1, 2, 3], [3, 4]);
+      fn.myApply({}, [3, 6]);
+    </script>
+  </body>
+</html>

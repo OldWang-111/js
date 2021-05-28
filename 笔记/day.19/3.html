@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 300px;
+        height: 300px;
+        background-color: indigo;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      var oBox = document.getElementById("box");
+      function fn(e) {
+        console.log("111");
+        console.log(e);
+      }
+      //封装节流函数
+      function throttle(center, time) {
+        //初始化一个最后执行的时间
+        var lastTime = 0;
+        //返回一个函数
+        return function () {
+          //获取当前的时间
+          var nowTime = Date.now();
+          //判断间隔时间
+          if (nowTime - lastTime < time) {
+            return;
+          }
+          //将最后一次的执行时间重置为执行的时间
+          lastTime = nowTime;
+          //如果大于time时间则执行函数
+          //并且将他的this指向obox
+          //
+          fn.call(this, arguments[0]);
+        };
+      }
+      oBox.onmousemove = throttle(fn, 400);
+    </script>
+  </body>
+</html>

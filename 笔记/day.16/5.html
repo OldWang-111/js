@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            apply:
+                和call类似
+                区别:给函数传参的时候
+                    -call是第二个开始依次传参
+                    -apply是把所有的参数放入数组中国 然后传入第二个参数
+
+
+            bind:
+                -语法和call一样;
+                -bind也是改变函数的上下文的this指向
+                -bind并不是调用函数,而是返回一个改变this指向后的函数
+        
+        
+        */
+      console.dir(Function.prototype);
+      function fn(a, b) {
+        console.log(this, a * b);
+      }
+      fn.apply([2, 34, 5], [2, 4]);
+      fn.apply(function () {}, [2, 4]);
+      fn.apply("adad", [2, 4]);
+      fn.apply(21312, [2, 4]);
+      fn.apply(undefined, [2, 4]);
+      fn.apply(null, [2, 4]);
+      fn.apply(window, [2, 4]);
+
+      //bind 使用场景
+      function fn(a, b) {
+        console.log(this, a + b);
+      }
+      //返回一个更改this指向后的数组
+      var re = fn.bind([12, 213], 2, 4);
+      console.log(re);
+      re(); //this指向[12,213]
+
+      //bind场景2
+      /* document.onclick = function () {
+        var timer = setInterval(function () {
+          console.log(this);//window
+          clearInterval(timer);
+        }, 500);
+      }; */
+      document.onclick = function () {
+        var timer = setInterval(
+          function () {
+            console.log(this); //document
+            clearInterval(timer);
+          }.bind(this),
+          500
+        );
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+        js字符串(string) 就是由零个或多个Unicode字符组成的字符序列,零个字符表示空字符串
+        1.单引号 和 双引号表示字符串
+        2.单引号内嵌双引号,双引号内嵌单引号
+        3.转移符操作
+        4.字符串不允许书写时换行
+        5.显示换行
+
+        字符串的长度:双引号表示字符串
+
+    */
+
+    var a = 'hello Wrold';
+    var b = "red";
+    console.log(a,b);
+
+        //嵌套
+        var c = "海景说:'我真棒'";
+        console.log(c);
+
+
+    //转义符操作  \反斜线
+    var d = "写一个双引号\"";
+    var e = '写一个斜杠\\';
+    //换行
+    var f = "0\
+             a\
+             b\
+             c";
+    console.log(f);
+    //显示换行
+    var g = "显示\n换行";
+    console.log(g);
+
+    //字符串长度
+    var h = "shge123343";
+    console.log(h.length);//10
+    //字符串每个值都对应一个下标,可以用过下标获取字符串的某一个值
+    //console.log(h.3)  点后面跟数字语法错误,所以要用[]包起来
+    console.log(h[6])//3
+    </script>
+</body>
+</html>

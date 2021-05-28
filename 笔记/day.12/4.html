@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        position: relative;
+        width: 400px;
+        height: 550px;
+        margin: 50px auto;
+        /* border: 1px solid red; */
+      }
+      #box2 {
+        width: 400px;
+        height: 550px;
+        overflow: hidden;
+        /* margin: 50px auto; */
+        /* border: 1px solid red; */
+        /* overflow: auto; */
+      }
+      #inner {
+        display: flex;
+        width: 2000px;
+        height: 550px;
+      }
+      #inner img {
+        width: 400px;
+        height: 550px;
+      }
+      #box span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        line-height: 50px;
+        font-size: 28px;
+        color: white;
+        width: 40px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(209, 209, 209, 0.8);
+      }
+      #box span:first-of-type {
+        left: 10px;
+      }
+      #box span:last-of-type {
+        right: 10px;
+      }
+      #xdd {
+        position: absolute;
+        display: flex;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      #xdd div {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        margin-left: 8px;
+        background-color: rgba(237, 243, 243, 0.4);
+      }
+      #xdd div.active {
+        background-color: rgba(40, 238, 238, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div id="box2">
+        <div id="inner">
+          <img src="./img/images/01.jpg" alt="" />
+          <img src="./img/images/02.jpg" alt="" />
+          <img src="./img/images/03.jpg" alt="" />
+          <img src="./img/images/04.jpg" alt="" />
+          <img src="./img/images/05.jpg" alt="" />
+        </div>
+        <span>&lt;</span>
+        <span>&gt;</span>
+        <div id="xdd">
+          <div class="active"></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <script>
+        var oBox = document.querySelector("#box")
+        var oBox2=document.querySelector("#box2")
+      var oInner =document.querySelectorAll("#inner img")
+      var oXdd = document.querySelectorAll("#xdd")
+      console.log(oInner)
+      var i = 0;
+      setInterval(function () {
+        //每隔两秒i+1  超过图片长度就重头开始
+        i++;
+        if (i > oInner.length-1) {
+          i = 0;
+        }
+        oBox2.scrollLeft=i * oInner[0].offsetWidth;
+      }, 2000);
+    </script>
+  </body>
+</html>

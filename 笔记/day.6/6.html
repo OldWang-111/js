@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            遍历数组 二维显示
+        */
+      var num = [];
+      for (i = 0; i < 10; i++) {
+        //每次循环创建一个新的数组
+        var innum = [];
+        for (j = 0; j < 10; j++) {
+          innum[j] = i * 10 + j + 1;
+        }
+        //将10组数组传入num中
+        num[i] = innum;
+      }
+      console.log(num);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            for循环:
+                for(语句一;判断式2;语句三){
+                    代码块
+                }
+                -首先执行语句一
+                -再执行判断二,判断二返回的值为true则执行代码块
+                -执行完代码块再执行语句三,再返回执行判断二依次循环
+                -判断二返回值为false则退出循环
+        */
+      //打印10句hello world
+
+      for (var a = 0; a < 10; a++) {
+        document.write("hello world<br/>");
+      }
+      //定义一个变量a=5 ,让a执行5次,每次a+3.然后弹出a的最终结果
+      for (var a = 5, i = 0; i < 5; i++) {
+        a += 3;
+      }
+      console.log(a);
+
+      //求1-9的和
+      for (var a = 1, b = 0; a <= 9; a++) {
+        b += a;
+      }
+      console.log(b); //45
+
+      //求1-100的和
+      for (var a = 0, b = 0; a <= 100; a++) {
+        b += a;
+      }
+      console.log(b); //5050
+
+      //求1-100单数的和
+      for (var a = 0, b = 0; a <= 100; a++) {
+        if (a % 2 === 1) {
+          b += a;
+        }
+      }
+      console.log(b); //2500
+
+      //求1-99三的倍数的和
+      for (var a = 1, b = 0; a <= 99; a++) {
+        if (a % 3 === 0) {
+          b += a;
+          console.log(a);
+        }
+      }
+      console.log(b); //1683
+
+      // 定义一个v， 当v等于0时， v进行3次自加1。 否则v进行4次自加2
+      var v = 2;
+      if (v === 0) {
+        for (var i = 0; i < 3; i++) {
+          v++;
+        }
+      } else {
+        for (i = 0; i < 4; i++) {
+          v += 2;
+        }
+      }
+      console.log(v); //10
+    //   定义v= 3; 对变量i由0到3进行遍历； 当i 等于2时， v自加2； 否则v自加3
+      var v=3;
+      for(var i=0;i<=3;i++){
+          if(i===2){
+              v+=2;
+          }else{
+              v+=3;
+          }
+      }
+      console.log(v)//14
+    </script>
+  </body>
+</html>

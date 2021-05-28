@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            逗号运算符:
+                1.一条语句执行多个操作
+                2.一条语句先执行逗号左侧的,在执行逗号右侧,然后返回右侧的值
+        
+                其他使用方法:
+                    -函数的多个参数使用逗号隔开
+                    -数组的值逗号隔开
+                    -对象的每一对key-value使用逗号隔开
+        */
+       //1.一条语句执行多个操作
+       var a = 1,b =2;
+       var ff = 10,dd = 30;
+       //逗号操作符返回逗号右侧的值
+       var c = (1,2,3,4,6,5);
+       console.log(c);//5
+
+
+       /*
+            赋值运算符
+                - = :把等号右侧的值赋值给等号左侧的变量
+                -可以连续赋值
+                -赋值运算符 返回等号右侧的值
+       
+       */
+      //把二赋值给了全部
+      //这条语句只申明了a这个变量,其他的都没有申明
+      //如果变量没有申明,是可以被赋值操作的,但是不能获取他的值使用,因为没有,所以报错
+        var a=b=c=d=e=3;
+
+        console.log(c);
+    </script>
+</body>
+</html>

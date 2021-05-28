@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 300px;
+        height: 300px;
+        background-color: hotpink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      /*
+        节流函数基础版
+         */
+      var oBox = document.getElementById("box");
+      var lastTime = 0;
+      oBox.onmousemove = function () {
+        var nowTime = Date.now();
+        // console.log(nowTime);
+        if (nowTime - lastTime < 200) {
+          return;
+        }
+        console.log("111");
+        lastTime = nowTime;
+      };
+    </script>
+  </body>
+</html>

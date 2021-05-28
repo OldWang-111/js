@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* sort */
+      /* var arr = [1, 4, 7, 3, 7, 9, 31, 6, 23, 8, 234, 8, 23, 79, 7, 5];
+            arr.sort();
+            console.log(arr.sort(function(a,b){
+                return a-b;
+            })) */
+      //http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90
+      /*  var str =
+              "http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90";
+            var obj = {};
+            str
+              .split("?")[1]
+              .split("&")
+              .forEach(function (item, index) {
+                var keyValue = item.split("=");
+                var key = keyValue[0];
+                var value = keyValue[1];
+                obj[key] = value;
+              });
+              console.log(obj); */
+      var obj = {
+        age: "18",
+        password: "12345",
+        score: "90",
+        sex: "女",
+        username: "xiaowang",
+      };
+      var str = "http://www.baidu.com?";
+      console.log(obj);
+      for (var key in obj) {
+        str += key + "=" + obj.key + "&";
+      }
+      console.log(str)
+    </script>
+  </body>
+</html>

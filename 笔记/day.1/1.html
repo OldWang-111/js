@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <!-- 第一种写在head标签中，需要做处理才可以用，不然浏览器不会获取文档中的数据dom不会做解析 -->
+        <!-- 一个script标签引入了js外部文件，那么它里面将不能再js代码,写了也会被忽略 -->
+        <script type="text/javascript" src="引入的路径"></script>
+    </head>
+    <body>
+        
+        <!-- 通常写在body结束标签的上面 -->
+        <!-- 
+            外部引入：
+                默认的时候，碰到引入的js文档会直接下载并立即执行
+
+            defer  (异步+延迟)异步下载 js文件会等html加载完成后执行
+                如果加载多个js文件会等加载完后按排列顺序执行
+
+            asyns (异步) 碰到js 异步加载，下载完立即执行
+                有多个的话先下载完哪个，就直接执行
+         -->
+        <script>
+            // 获取id元素
+            // oBox 定义的变量名称   document数据文件  get获取  
+            // 返回对拥有指定 ID 的第一个对象的引用。
+            var oBox = document.getElementById("")
+            // 将获取box打印出来
+            console.log(oBox)
+        </script>
+    </body>
+    <!--第三种方法写在body,html中间但是浏览器解析的时候会将它写在body里  -->
+    <script></script>
+</html>

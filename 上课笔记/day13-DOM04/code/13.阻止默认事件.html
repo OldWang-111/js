@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #box {
+                position: fixed;
+                width: 150px;
+                height: 250px;
+                box-shadow: 0px 2px 3px;
+                display: none;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="box">
+            <a href="#"><p>刷新</p></a>
+            <a href="#"><p>复制</p></a>
+        </div>
+        <script>
+            /*
+                阻止默认事件：
+                    主流：e.preventDefault();
+                    IE:e.returnValue = false;
+
+
+                    有个简单粗暴的阻止默认事件方式
+                    return false;(书写在末尾)
+
+            */
+
+            /*  document.oncontextmenu = function (e) {
+                    // e.preventDefault();
+                    console.log(1);
+
+                    return false;
+                }; */
+            //创建一个box 当右键点击的时候显示
+            // var box = document.createElement("div");
+
+            document.documentElement.oncontextmenu = function (e) {
+                var oBox = document.getElementById("box");
+                oBox.style.display = "block";
+                e.preventDefault();
+                // return false;
+                var eLocation = {
+                    x: e.offsetX,
+                    y: e.offsetY,
+                };
+                var oBoxLocation = {
+                    x: oBox.offsetWidth,
+                    y: oBox.offsetHeight,
+                };
+                var docLocation = {
+                    x: document.documentElement.clientWidth,
+                    y: document.documentElement.clientHeight,
+                };
+                console.log(eLocation);
+                console.log(oBoxLocation);
+                console.log(docLocation);
+                if (docLocation.x - eLocation.x < oBoxLocation.x) {
+                    oBox.style.left = eLocation.x - oBoxLocation.x + "px";
+                } else {
+                    oBox.style.left = eLocation.x + "px";
+                }
+                if (docLocation.y - eLocation.y < oBoxLocation.y) {
+                    oBox.style.top = eLocation.y - oBoxLocation.y + "px";
+                } else {
+                    oBox.style.top = eLocation.y + "px";
+                }
+            };
+        </script>
+    </body>
+</html>

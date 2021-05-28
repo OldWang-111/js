@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            forEach():
+                -专门用来遍历数组
+                -forEach接受一个回调函数作为参数,数组的值会依次的进入函数执行
+                -回调函数接受三个参数
+                    -参数1:当前进入函数的数组的元素
+                    -参数2:单签进入函数的数组的元素的下标
+                    -参数3:当前数组的引用
+
+
+            -空位数组的空位不会进入forEach中
+            -forEach没有返回值
+            -forEach中的回调函数的this是指向window
+        */
+
+      var arr = ["a", "b", "c", "d", "e"];
+      arr.forEach(function (a, b) {
+        console.log(a, b);
+      });
+      var r = [];
+      arr.forEach(function (a, b) {
+        r[b] = a;
+        // r.push(item + 1);
+      });
+      //   直接遍历一份
+      console.log(r); //["a", "b", "c", "d", "e"]
+
+      var a = arr.forEach(function (a, b) {
+        r[b] = a;
+      });
+      //不会返回值
+      console.log(a); //undefined
+      /* 
+        映射数组:
+            -参数和forEach类似
+            -遍历数组,并返回一个和原数组长度一样的数组
+            -原数组每次会进入回调函数执行，当前回调函数的返回值就是映射数组对应位置的值
+
+
+            对比forEach:
+                - 都是遍历数组，map会返回一个和原数组一样长度的数组，forEach没有返回值
+
+      */
+
+      var arr = [11, 21, 31, 41, 51, 61]; //+1
+      var re = arr.map(function (item, index) {
+        return item + 1;
+      });
+      console.log(arr); //[11, 21, 31, 41, 51, 61]
+      //有返回值   原数组不会发生 改变
+      console.log(re); //[12, 22, 32, 42, 52, 62]
+
+      //如果男生则年龄减1 如果女生则年龄+1
+      var persons = [
+        { name: "lily1", sex: "女", age: 18 },
+        { name: "lily2", sex: "男", age: 19 },
+        { name: "lily3", sex: "女", age: 11 },
+        { name: "lily4", sex: "男", age: 28 },
+        { name: "lily5", sex: "女", age: 22 },
+      ];
+      var re2 = persons.forEach(function (item, index) {
+        if (item.sex === "男") {
+          item.age -= 1;
+        } else {
+          item.age -= 1;
+        }
+      });
+      console.log(persons); //
+
+      var re3 = persons.map(function (item, index) {
+        if (item.sex === "男") {
+          item.age -= 1;
+        } else {
+          item.age += 1;
+        }
+        return item;
+      });
+      console.log(re3); //
+    </script>
+  </body>
+</html>

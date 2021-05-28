@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            break:
+                当遇到break则直接退出循环(for and while),执行循环后的代码
+            continue:
+                当遇到continue则直接跳过当前的执行,继续执行下一次循环
+
+         */
+         for(var i=0;i<9;i++){
+             if(i===3){
+                 continue;
+             }
+             console.log(i)
+         }
+
+         //练习
+         var num=0;
+         for(var i=0;i<5;i++){
+             if(i==3){
+                 continue;
+             }
+             num++
+         }
+         console.log(num)//4
+         var num=0;
+         for(var i=0;i<5;i++){
+             if(i==3){
+                 break;
+             }
+             num++
+         }
+         console.log(num)//3
+
+
+         /* 
+            break和continue默认退出当前最近的循环
+            label声明是给for循环起一个名字,当使用break和continue可以选择退出所在那个循环
+
+         */
+        o:
+        for(var i=0;i<9;i++){
+            for(var j=0;j<=i;j++){
+                document.write(j+"*"+i+"="+j*i+"&nbsp;&nbsp;&nbsp;&nbsp;")    
+            }
+            document.write("<br/>")
+        }
+        var c=0;
+        outer:
+            for(var i=0;i<6;i++){
+                inner:for(var j=0;j<5;j++){
+                    if(j<2){
+                        // break inner; 
+                        continue inner;
+                    }
+                  c++;
+                }
+            }
+            console.log(i,j)//5.2
+            console.log(c)//18
+
+    </script>
+</body>
+</html>

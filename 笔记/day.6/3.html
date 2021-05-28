@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            定义数组:
+                -字面量
+                    var arr = [];
+
+                -实例化构造函数
+                    var arr = new Array();
+
+        */
+
+      //字面量
+      var arr1 = []; //空数组
+      //数组内可以保存任意类型的值
+      var arr2 = [null, undefined, 1, 2, 3, "132"];
+      console.log(arr2); //length=6
+
+      //实例化构造函数
+      var arr3 = new Array();
+      var arr3 = new Array("a", "b", 1, 23);
+      //如果构造函数的参数只是一个,且是一个number的时候,则这个数字代表数组的程度length,而不是数组的值
+      var arr5 = new Array(3);
+      console.log(arr5); //(3) [empty × 3]
+
+      //普通数组
+      var arr = ["a", "b", 2, 4, 34];
+      console.log(arr[0]); //可以通过下标的方式获取数组的值
+      console.log(arr[1]);
+      console.log(arr[10]); //undefined 获取对象没有的属性
+      console.log(arr[3 - 1]); //中括号操作符中,是可以进行运算的
+      console.log(arr[4]);
+      console.log(arr);
+
+      //多维数组
+      var arr2 = [1, 23, [2, 23, [15, 324, [3]], 3], 5];
+      console.log(arr2[2][2][2]); //[3]
+
+      //空位数组
+      //数组内部如果以逗号为结尾,则忽略,不会当成一个值
+      var arr3 = [1, 2, 3, 45];
+      console.log(arr3);
+      console.log(arr3.length); //4
+
+      //伪类数组 （伪数组  类数组）
+      //它不是数组，只不过是像数组
+      //伪类数组其实是一个对象，但是符合两个特征 1:key是从0开始自然递增
+      // 2.拥有length属性表示长度
+      var likeArr = {
+        0: "a",
+        1: "b",
+        2: "c",
+        3: "d",
+        length: 4,
+      };
+      console.log(likeArr);
+      //伪类数组的获取和数组类似
+      console.log(likeArr[0]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            /*
+                new干了什么
+                    1.创建一个新的对象
+                    将构造函数的this指向这个创建的对象
+                    2.将这个对象的隐式原型指向构造函数的显示原型
+                    3.判断返回值  返回对象还是返回构造函数的返回值
+            */
+            function fn(name, age) {
+                this.name = name;
+                this.age = age;
+                // return [1, 2, 3, 4, 5, 6, 7];
+                // return false;
+            }
+            /* function myNew(h) {
+                //创建对象
+                var obj = {};
+                //将构造函数的this指向这个对象 并传入实参调用获取返回值
+                //获取要传入的实参
+                var agr = Array.from(arguments).slice(1);
+                var re = h.apply(obj, agr);
+                //将obj的隐式原型指向h的显示原型
+                obj.__proto__ = h.prototype;
+                // console.log(obj);
+                //判断返回值是否是对象类型
+                if (
+                    (typeof re === "object" && re !== "") ||
+                    typeof re === "function"
+                ) {
+                    return re;
+                }
+                //否则返回obj
+                return obj;
+            }
+
+            var re = myNew(fn, "laowang", 18);
+            console.log(re); */
+
+            function myNew(fun) {
+                //创建一个对象
+                var obj = {};
+                //后去传入的实参
+                var agr = Array.from(arguments).slice(1);
+                //将fun的this指向obj  并且调用 拿到返回值
+                var re = fun.call(obj, ...agr);
+                //改变原型链
+                obj.__proto__ = fun.prototype;
+                // console.log(obj);
+                //判断返回值是否是对象类型
+                if (
+                    (typeof re === "object" && re !== "") ||
+                    typeof re === "function"
+                ) {
+                    return re;
+                }
+                //如果是基本类型则返回obj
+                return obj;
+            }
+            var re = myNew(fn, "laowang", 18);
+            console.log(re);
+        </script>
+    </body>
+</html>

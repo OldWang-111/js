@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        /*多行注释
+            变量：   相当与容器 值相当与容器里的东西 变量的名字就像容器的标签一样
+            js 变量是松散类型 （ 弱类型，动态类型），
+            用var声明变量，可以随意更改变量保存的值
+        */
+    //  a是声明的变量的名字 3是变量的值  =是赋值的意思  
+    //  ,是操作符    可以用逗号隔开，同时声明多个变量
+    // =的优先级很低，  逗号的优先级比它更低
+        var a = 3,b = 4;
+        // 变量的值是可以随意更换的  还可以多次声明同一个变量
+        // 语句一般以分号进行结尾  花括号结尾可以不用
+        // console.log(a + b);
+        // console.log(a + a + b);
+
+        // 怎么把b的值赋值给a  a的值赋值给b
+
+        var c = b;//定义一个临时的变量,将b的值保留在c里面
+            b = a;//再把a的值赋值给b
+            a = c;//最后把临时保存的值赋值给a
+
+        var r = 10,g = 12;
+            r = r + g;//r=22 
+            g = r - g;//g=22-12=10
+            r = r - g;//r=22-10-12
+
+        // 或者
+        r = 12;
+        g = 10;
+    </script>
+</body>
+</html>

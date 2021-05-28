@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            函数参数:
+                -形参:定义函数的时候,预计需要的参数
+                    书写在function的小括号李,多个形参用逗号隔开
+                    形参属于标识符,命名时要符合标识符的规范
+
+                -实参:在调用函数的时候,实际传入的参数,多个参数使用逗号隔开
+
+                -新参只能在当前函数内部生效
+        */
+
+      //声明函数
+      //name 和type就是形参
+      function fn(name, type) {
+        document.write("大家好<br/>");
+        document.write("我是" + name + "<br/>");
+        document.write("我是你们的" + type + "<br/>");
+      }
+
+      //调用函数,传入实参  用逗号隔开 一一对应
+      fn("静哥哥", "老师");
+
+      /* 
+        *arguments*:
+            -在函数内部使用,是一个伪数组,包含了所有传入的实参
+
+        获取参数的个数:
+            -获取实参的个数:在函数中直接获取arguments.length
+            -获取形参的个数:函数名的length即可获取
+      */
+
+      function fn1(a, b, c, d) {
+        console.log(fn1.length); //fn1 有4个形数
+        console.log(arguments); //打印出了传入的实参和下标
+        console.log(arguments.length); //传入7个实参
+      }
+      fn1(1, 2, 3, 4, 5, 6, 7);
+
+      //封装一个函数,计算所有传入参数的和
+      function sum() {
+        //   console.log(arguments[0]);
+        //   console.log(arguments[1]);
+        //   console.log(arguments[2]);
+        //   console.log(arguments[3]);
+        //   console.log(arguments[4]);
+        //   console.log(arguments[5]);
+        //   console.log(arguments[6]);
+        var num = 0;
+
+        //遍历arguments 拿到所有实参的值进行累加
+        //arguments有一个length属性 是当前实参的长度
+        //i<arguments.length  i小于传入的实参的个数 下标从0开始计算所以小于arguments.length
+        for (var i = 0; i < arguments.length; i++) {
+          num += arguments[i];
+        }
+        console.log(num); //36 136 1036
+      }
+
+      sum(1, 2, 3, 4, 5, 6, 7, 8);
+      sum(1, 2, 3, 4, 5, 6, 7, 8, 100);
+      sum(1, 2, 3, 4, 5, 6, 7, 8, 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script>
+            var arr = [3, 5, 1, 4, 2, 6, 8, 5, 9, 4];
+
+            /* //因为冒泡排序每次只能找到一个最大值，所以要找很多次，所以要for循环遍历得到次数
+             for (var i = 0; i < arr.length; i++) {
+                 //每次开始找最大值
+                 for (var j = 0; j < arr.length - i; j++) {
+                     if (arr[j] > arr[j + 1]) {
+                         //交换两个位置
+                         var temp = arr[j];
+                         arr[j] = arr[j + 1];
+                         arr[j + 1] = temp;
+                     }
+                 }
+             } */
+
+            /*  for (var i = 0; i < arr.length - 1; i++) {
+                 for (var j = 0; j < arr.length - i; j++) {
+                     if (arr[j] > arr[j + 1]) {
+                         var a = arr[j];
+                         arr[j] = arr[j + 1];
+                         arr[j + 1] = a;
+                     }
+                 }
+             }
+             console.log(arr); */
+            /* for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = 0; j < arr.length - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var a = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = a;
+                    }
+                }
+            }
+            console.log(arr); */
+
+            //冒泡排序
+            /* for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr.length - i; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var b = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = b;
+                    }
+                }
+            }
+            console.log(arr); */
+            //快速排序
+            function fn(arr) {
+                //判断是否只有一个
+                if (arr.length <= 1) {
+                    return arr;
+                }
+                //创建两个容器用来比较存储
+                //选取一个数进行比较
+                var left = [];
+                var right = [];
+                var center = arr.pop();
+                arr.forEach(function (item, index) {
+                    if (item > center) {
+                        right.push(item);
+                    } else {
+                        left.push(item);
+                    }
+                });
+                //拼接数组
+                //重复调用fn()直到每个数组中只有一个数
+                return fn(left).concat(center, fn(right));
+            }
+            var re = fn([1, 12, 32, 4, 5, 6, 32, 1, 23, 5, 2, 64, 2421, 24]);
+            console.log(re);
+        </script>
+    </body>
+</html>

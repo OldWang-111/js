@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            parseInt方法
+                -将字符串转数字  取整
+                -从第一位开始读,直到碰到非数字,把前面的数字提取出来
+
+            parseFloat方法
+                -将字符串转数字,可以取浮点数(小数)
+                -从第一位开始,直到碰到非数字(可以碰一次小数点),然后提取前面的数字
+
+            parseInt进制转换功能
+        */
+       console.log(parseInt('123123kjdasida'))//123123
+       console.log(parseInt('1231.23kjdasida'))//1231
+       console.log(parseFloat('12312.123asd'))//12312.123
+       console.log(parseFloat('12.312.123asd'))//12.312
+       console.log(parseFloat('12.3a12.123asd'))//12.3
+       console.log(parseFloat('a12.3a12.123asd'))//NaN
+
+                //后面的数字代表进制最高36进制
+                //0进制默认为10进制
+                //没有1进制  写1返回NaN
+                
+       console.log(parseInt('111',2))//7
+       console.log(parseInt('abdf',16))//43999
+       console.log(parseInt('111',2))//7
+       console.log(parseInt('111',0))//111
+       console.log(parseInt('23',2))//NaN
+
+
+    </script>
+</body>
+</html>

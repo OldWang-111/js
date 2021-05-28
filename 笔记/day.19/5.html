@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="box">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <button id="btn">创建100个LI</button>
+    <script>
+      /*
+            -DocumentFragment是一个虚拟的节点类型,
+            仅仅存在于内存中,没有添加到文档树中,所以看不到渲染效果
+            -使用document.createDocumentFragment()
+            方法创建,使用appendChild方法等方法插入
+
+        */
+      var oBox = document.getElementById("box");
+      var oBtn = document.getElementById("btn");
+      /* oBtn.onclick = function () {
+        var nowLi = document.createDocumentFragment();
+        for (var i = 0; i < 100; i++) {
+          var newL = document.createElement("li");
+          newL.textContent = "123";
+          //每次创建好li 就把他插入到虚拟节点中
+          nowLi.appendChild(newL);
+        }
+        oBox.appendChild(nowLi);
+      }; */
+      oBtn.onclick = function () {
+        //创建一个虚拟节点
+        var oFrag = document.createDocumentFragment();
+        for (var i = 0; i < 100; i++) {
+          //每次循环创建一个li
+          var newLi = document.createElement("li");
+          newLi.textContent = "123";
+          //将创建好的li放入到虚拟节点中
+          oFrag.appendChild(newLi);
+        }
+        //将合并好的100li节点插入到ul中
+        oBox.appendChild(oFrag);
+      };
+    </script>
+  </body>
+</html>

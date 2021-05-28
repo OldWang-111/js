@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* function fn() {
+        var arr = [0,1];
+        
+        for(var i=2;i<50;i++){
+            arr.push(arr[i-1]+arr[i-2])
+        }
+        return arr;
+      }
+      var re=fn()
+      console.log(re); */
+      function fn(a) {
+        var arr = [];
+        // debugger;
+        while (a > 0) {
+          arr.push(a % 2);
+          a = parseInt(a / 2);
+        }
+        console.log(arr)
+        // debugger;
+        var b="";
+        for (var i = arr.length-1; i >=0; i--) {
+          b+=(arr.pop())
+        }
+        console.log(b)
+        return b;
+      }
+      var re = fn(256);
+      console.log(re);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            声明全局变量
+                1.在全局作用域中,直接使用var 声明变量
+                2.直接给一个没有声明变量赋值,则会把这个变量声明为全局变量
+                3.在任意位置给window对象扩展属性和方法
+        */
+      //全局变量
+      var a = 0;
+
+      function fn() {
+        //声明一个全局变量
+        b = 1;
+
+        //这个语句只声明了b  cde并没有声明
+        var b = (e = d = c = 2);
+
+        //给window对象扩展属性,其实就是全局变量
+        window.hello = "world";
+      }
+      fn();
+      console.log(c, d, e); //2 2 2
+      console.log(hello); //world
+
+      //引入
+      fn();
+      function fn() {
+        //执行上下文的第一步,先把当前这段代码的所有的变量整合起来,构成一个对象,方便此段代码未来使用变量
+        console.log(a);
+        var a = 1;
+      }
+      /* 
+        变量对象:
+            -变量对象是在本阶段代码中,储存了在上下文中定义的变量和函数声明
+            -变量对象分为 全局的变量对象和局部变量对象
+            -全局的变量对象就是window对象,所有的全局变量和函数都是window对象的属性方法
+            -进入局部代码,创建局部变量对象,首先变量对象包含了所有的形参和实参
+            -第二部:把所有声明的函数以键值对的形式放在变量对象中,如果和形参有重名则直接替换
+            -第三部:把所有声明的变量放在变量对象中,值都是undefined
+      */
+      //案例
+      function foo(a, c) {
+        /* 
+            var VO={
+                a:1,
+                c:2,
+                arguments:[1,2,3,4],
+                c:function(){},//函数是一体的,所有全部直接提升
+                b:undefined,//所有变量声明都是提升声明,不会赋值
+                d:undefined,
+                c:undefined,//提升变量时,如果和函数或形参同名,则不会覆盖之前的值
+            }
+         */
+        console.log(c);
+        var b = 2;
+        function c() {}
+        var d = function () {};
+        b = 3;
+        var c = 4;
+      }
+      foo(1,2,3,4);
+    </script>
+  </body>
+</html>

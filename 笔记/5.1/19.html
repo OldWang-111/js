@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //任意数转任意进制
+      function fn(a, b) {
+        var base = "0123456789abcdefghijklmnopqrstuvwxyz";
+        var num=[];
+        while (a > 0) {
+            num.unshift(base[a%b]);
+            a=parseInt(a/b);
+        }
+        return num.join("");
+      }
+      var re=fn(20000418, 32);
+      console.log(re)
+    </script>
+  </body>
+</html>

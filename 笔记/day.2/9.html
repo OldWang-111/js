@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">结果</button>
+
+    <input type="text" id="ipt2">
+    <button id="btn2">增值</button>
+    <script>
+        /*
+            输入半径,计算你家面积和周长
+        */
+        var oBtn = document.getElementById('btn');
+        var oIpt = document.getElementById('ipt');
+
+        oBtn.onclick = function(){
+            //获取输入的半径
+            var r = oIpt.value;
+
+            alert(parseInt(3.14*r*r));
+            alert(parseInt(2*3.14*r));
+            
+        }
+        var oBtn2 = document.getElementById('btn2');
+        var oIpt2 = document.getElementById('ipt2');
+        //定义初始值
+        var base = 0;
+        oBtn2.onclick=function(){
+            //思路:操作的时候可以先控制变量,然后得到计算的结果,可以再赋值
+            base = base + 9999;
+            //获取表单的是value属性,设置也是
+            oIpt2.value=base;
+        }
+    </script>
+</body>
+</html>

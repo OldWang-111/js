@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            封装:
+                -封装的目的是为了将信息隐藏,分为封装数据和封装实现
+                -封装实现:
+                    -就是隐藏实现的细节和设计的细节,我们不需要关心内部的实现,使用者只需要知道如何使用即可,封装让对象之前耦合变得松散,只需要通过暴露 的API接口来通信
+
+            多态:
+                由于js本身就是动态的,所有天生支持多态
+                多态:同一个操作作用域不同对象产生不同的结果
+        */
+      //父类
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      Person.prototype.login = function () {
+        console.log("login");
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //冒泡排序
+      /*  var arr = [1, 23, 5, 53, 312, 32, 3, 23, 4, 23];
+      for (var i = 0; i < arr.length - 1; i++) {
+        for (var j = 0; j < arr.length - i; j++) {
+          if (arr[j] > arr[j + 1]) {
+            var b = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = b;
+          }
+        }
+      }
+      console.log(arr); */
+      //快速排序
+      var sum = [2, 3, 323, 12, 232, 734, 52, 34, 5, 36, 4, 63, 424, 3, 35, 37];
+      function fn(an) {
+        if (an.length <= 1) {
+          return an;
+        }
+        var left = [];
+        var right = [];
+        var center = an.pop();
+
+        an.forEach(function (item, index) {
+          if (item >= center) {
+            right.push(item);
+          } else {
+            left.push(item);
+          }
+        });
+        var abc = fn(left).concat(center, fn(right));
+        return abc;
+      }
+      var re = fn(sum);
+      console.log(re);
+    </script>
+  </body>
+</html>

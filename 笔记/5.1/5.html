@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt" />
+    <button type="button" id="but">查看</button>
+    <script>
+      /* var a = 5;
+      var b = 5;
+      a == b && (b = 10);
+      console.log(b);  */
+
+      var oBut = document.getElementById("but");
+      oBut.onclick = function () {
+        var oIpt = document.getElementById("ipt").value;
+        var useript = parseInt(oIpt / 10);
+        if (oIpt > 100 || oIpt < 0) {
+            alert("请输入有效成绩")
+        }else if(useript>=9){
+            alert("S")
+        }else if(useript>=8){
+            alert("A")
+        }else if(useript>=7){
+            alert("B")
+        }else if(useript>=6){
+            alert("C")
+        }else(
+            alert("成绩不及格")
+        )
+      };
+    </script>
+  </body>
+</html>

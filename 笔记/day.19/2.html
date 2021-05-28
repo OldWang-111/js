@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 300px;
+        height: 300px;
+        background-color: indianred;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      /* 节流函数 */
+      var oBox = document.getElementById("box");
+      function throttle(fn, time) {
+        //初始化上一次的时间
+        var lastTime = 0;
+        //retrun的这个函数才是真正的事件函数
+        return function () {
+          //每次执行都获取当前的时间
+          var nowTime = Date.now();
+          //判断
+          if (nowTime - lastTime < time) {
+            return;
+          }
+          lastTime = nowTime;
+          //如果大于time则执行事件函数fn
+          //并改变fn的this指向 fn的this应该指向obox
+          //当前函数的this就是指向obox
+          console.log(this);
+          //让fn的this指向obox
+          fn.call(this, arguments[0]);
+        };
+      }
+      function fn() {
+        console.log("111");
+      }
+      //调用节流方法
+      oBox.onmousemove = throttle(fn, 300);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <div id="box"></div>
+  <body>
+    <script>
+      /*
+            拖拽元素
+
+        */
+      var oBox = document.getElementById("box");
+      oBox.onmousedown = function (e) {
+        //鼠标到目标元素边界的距离
+        var downLocation = {
+          left: e.offsetX,
+          top: e.offsetY,
+        };
+        document.onmousemove = function (e) {
+          //鼠标点击移动后的位置
+          var oBoxLocation = {
+            left: e.clientX,
+            top: e.clientY,
+          };
+          //元素最终位置
+          var newLocation = {
+            x: oBoxLocation.left - downLocation.left,
+            y: oBoxLocation.top - downLocation.top,
+          };
+          //判断临界值
+          if (newLocation.x <= 0) {
+            newLocation.x = 0;
+          } else if (newLocation.x >= document.documentElement.clientWidth - oBox.offsetWidth) {
+            newLocation.x = document.documentElement.clientWidth-oBox.offsetWidth;
+          }
+          if (newLocation.y <= 0) {
+            newLocation.y = 0;
+          } else if (newLocation.y >= document.documentElement.clientHeight - oBox.offsetHeight) {
+            newLocation.y = document.documentElement.clientHeight- oBox.offsetHeight;
+          }
+          // console.log(newLocation.x)
+          // console.log(newLocation.y)
+
+          oBox.style.top = newLocation.y + "px";
+          oBox.style.left = newLocation.x + "px";
+        };
+
+        document.onmouseup = function () {
+          document.onmousemove = null;
+          document.onmouseup = null;
+        };
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var str = "abaasdffggghhjjkkgfddsssss3444343";
+      console.log(str.length)
+      var a=[];
+      a.push(str[0])
+      a.push(str[3])
+      a.push(str[5])
+      a.push(str[9])
+      console.log(a);
+      console.log(str.indexOf("i"));//-1
+      console.log(str.indexOf("c"));//-1
+      console.log(str.indexOf("b"));//1
+
+      var a1=str.slice(1,5)
+      console.log(a1);
+    </script>
+  </body>
+</html>

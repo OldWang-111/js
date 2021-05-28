@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      #outer {
+        position: relative;
+        margin: 0 auto;
+        width: 540px;
+      }
+      #shang {
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+        font-size: 20px;
+        font-weight: bold;
+        border: 1px solid red;
+        text-align: center;
+        line-height: 45px;
+      }
+      #shang li {
+        flex-grow: 1;
+      }
+      #xia li {
+        position: absolute;
+        width: 100%;
+        height: 400px;
+        top: 45px;
+        left: 0;
+        display: none;
+        border: 1px solid red;
+        font-size: 25px;
+        text-align: center;
+        line-height: 400px;
+      }
+      .x {
+        background-color: red;
+        color: white;
+      }
+      #xia .y {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <ul id="shang">
+        <li class="x">菜单一</li>
+        <li>菜单二</li>
+        <li>菜单三</li>
+      </ul>
+      <ul id="xia">
+        <li class="y">内容一</li>
+        <li>内容二</li>
+        <li>内容三</li>
+      </ul>
+    </div>
+    <script>
+      var oOuter = document.getElementById("oOuter");
+      var oS = document.querySelectorAll("#shang li");
+      var oX = document.querySelectorAll("#xia li");
+      // console.log(oS)
+      // console.log(oX)
+      oS.forEach(function (item, index) {
+        item.onclick = function () {
+          oS.forEach(function (item, index) {
+            item.classList.remove("x");
+            oX[index].classList.remove("y");
+          });
+          item.classList.add("x")
+          oX[index].classList.add("y")
+        };
+      });
+    </script>
+  </body>
+</html>

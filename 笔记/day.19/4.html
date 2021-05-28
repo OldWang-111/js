@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <input type="text" id="ipt" />
+    <script>
+      /* 防抖函数 */
+      var oIpt = document.getElementById("ipt");
+      function fn(e) {
+        console.log(this);
+        console.log(e);
+      }
+      /*  function debounce(fn, time) {
+        //初始化一个定时器
+        var timer = null;
+        return function () {
+          //每次触发清除上一个定时器
+          clearInterval(timer);
+          //保存时间函数的this
+          var _this = this;
+          //保存事件对象
+          var e = arguments[0];
+          timer = setTimeout(function () {
+            fn.call(_this, e);
+          }, time);
+        };
+      }
+      oIpt.oninput = debounce(fn, 200); */
+      function debounce(center, time) {
+        //初始化一个定时器
+        var timer = null;
+        return function () {
+          //每次触发清除上一次的定时器
+          clearInterval(timer);
+          //获取this的指向
+          //过去event对象
+          var _this = this;
+          var e = arguments[0];
+          timer = setTimeout(function () {
+            //改变this指向并且调用
+            center.call(_this, e);
+          }, time);
+        };
+      }
+      function fn(e) {
+        console.log(this);
+        console.log(e);
+      }
+      oIpt.oninput = debounce(fn, 300);
+    </script>
+  </body>
+</html>

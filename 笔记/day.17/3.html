@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        prototype:
+            -prototype是一个执针,指向原型对象,也被称作为显示原型
+            -每一个函数都有一个prototype属性
+            -原型对象默认是一个空对象(constructor属性除外)
+            -当函数被实例化的时候,如果实例化对象调用某个方法或属性,实例化对象自己没有就会找这个构造函数的原型对象上找
+            -只有构造函数的prototype才有意义,其他函数prototype没用
+
+        */
+      function fn() {}
+      //默认prototype原型对象是一个空对象
+      console.log(fn.prototype);
+      fn.prototype.aaa = function () {
+        console.log("hello world");
+      };
+      fn();
+        var re = fn.aaa();
+        console.log(re);
+      var o1 = new fn();
+      o1.aaa();
+
+      //给Array扩展一个去重方法
+      /* Array.prototype.qc = function () {
+        var newArr = [];
+        this.forEach(function (item, index) {
+          if (newArr.indexOf(item) === -1) {
+            newArr.push(item);
+          }
+        });
+        return newArr;
+      };
+      var arr = [2, 3, 5, 5, 3, 3, 2, 24, 53, 5, 2];
+      var re = arr.qc();
+      console.log(re); */
+
+      //给String扩展一个去所有空格的方法
+      /* String.prototype.deleteSpace = function () {
+        //this代表调用deleteSpace的字符串
+        return this.replace(/\s/g, "");
+      };
+      var str = " j ka   a fs s f af asd ";
+      var re = str.deleteSpace();
+      console.log(re); */
+    </script>
+  </body>
+</html>

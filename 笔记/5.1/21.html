@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //国王游戏
+      function fn(a, b) {
+        var num = [];
+        for (var i = 1; i <= a; i++) {
+          num.push(i);
+        }
+        while (num.length > 1) {
+          for (var j = 1; j < b; j++) {
+              num.push(num.shift());
+              continue;
+          }
+          num.shift();
+        }
+        return num;
+      }
+      var re=fn(108, 3);
+      console.log(re)
+    </script>
+  </body>
+</html>

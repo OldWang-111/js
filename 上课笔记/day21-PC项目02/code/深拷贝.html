@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: "laowang",
+            age: 18,
+            eat: function () {
+                console.log("eat");
+            },
+            score: [90, 80, 70],
+            girlFriend: {
+                one: "xiaoli",
+                two: "lucy",
+                three: "洛夫斯基",
+            }
+        }
+
+        /* var objStr = JSON.stringify(obj);
+        console.log(objStr);
+
+        var obj2 = JSON.parse(objStr);
+        console.log(obj2);
+
+        console.log(obj2.girlFriend === obj.girlFriend); */
+
+        var newObj = JSON.parse(JSON.stringify(obj));
+        console.log(newObj);
+    </script>
+</body>
+
+</html>

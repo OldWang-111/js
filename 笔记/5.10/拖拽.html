@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      var oBox = document.getElementById("box");
+      /* document.onmousemove = function (e) {
+        // console.log(e)
+        if (e.clientY > document.documentElement.clientHeight-oBox.offsetHeight) {
+          e.clientY = document.documentElement.clientHeight-offsetHeight;
+        } else if (e.clientY <= 0) {
+          e.clientY = 0;
+        }
+        if (e.clientX > document.documentElement.clientWidth-oBox.offsetWidth) {
+          e.clientX = document.documentElement.clientWidth-offsetWidth;
+        } else if (e.clientX <= 0) {
+          e.clientX = 0;
+        }
+        oBox.style.top = e.clientY + "px";
+        oBox.style.left = e.clientX + "px";
+      }; */
+      oBox.onmousedown = function (e) {
+        //获取鼠标到目标元素的距离
+        var on = {
+          x: e.offsetX,
+          y: e.offsetY,
+        };
+        // console.log(now);
+        document.onmousemove = function (e) {
+          // console.log(on)
+          var up = {
+            x: e.clientX,
+            y: e.clientY,
+          };
+          var now = {
+            x: up.x - on.x,
+            y: up.y - on.y,
+          };
+          oBox.style.top = now.y + "px";
+          oBox.style.left = now.x + "px";
+          console.log(now);
+        };
+      };
+    </script>
+  </body>
+</html>

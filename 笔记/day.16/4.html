@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            call:
+                -在Function的原型对象中有call apply bind 三个方法供所有函数使用
+                -这三个方法是比喻函数才可以调用,崔仔意义是改变函数执行时的上下文,
+                改变函数的this 指向
+            call作用:
+                1,改变函数的this指向为自己的第一个参数
+                2.调用函数
+            call第一个参数有三种情况,
+                1.null和undefined:默认是把this指向window
+                2.基本包装类型:把this指向当前数据类型的包装对象
+                3.对象类型:this直接指向该对象
+            call方法从第二个参数开始,依次都是给被调用函数传递参数,
+
+        */
+      //   console.log(Object.prototype.toString.call());
+      var fn=function(){
+        console.log(this)
+      }
+      fn.call();
+      fn.call(window);
+      fn.call([123,2]);
+      fn.call({name:123});
+      fn.call("asda");
+      fn.call("1232");
+      fn.call(true);
+      fn.call(undefined);
+      fn.call(new Date());
+      fn.call(false);
+      fn.call(function(){});
+      fn.call(setInterval(function(){},50));
+      fn.call(document);
+      fn.call(fn);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+      #inner {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div id="inner"></div>
+    </div>
+    <script>
+      /* 
+            阻止传播
+                主流：e.stopPropagation()
+                IE低：e.cancelBubble=true
+
+
+                阻止传播只能阻止当前事件
+        */
+      var oBox = document.getElementById("box");
+      var oInner = document.getElementById("inner");
+      //会有冒泡效果
+      oBox.onclick = function (e) {
+        console.log("鼠标点击");
+      };
+      oInner.onmousedown = function (e) {
+        console.log("鼠标按下");
+      };
+      oInner.onmouseup = function (e) {
+        console.log("鼠标抬起");
+      };
+      oInner.onclick = function (e) {
+        e.stopPropagation();
+      };
+
+      /* 
+            阻止默认事件：
+                主流：e.preventDefault();
+                IE:e.retureValue=false;
+
+                reture false;(书写在末尾)
+        
+        */
+      window.oncontextmenu= function (e) {
+          console.log("123123123123")
+          return false;
+      };
+    </script>
+  </body>
+</html>

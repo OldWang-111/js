@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        navigator:
+            navigator对象存储了与浏览器相关的基础信息,如名称、版本和系统等。
+
+            通过 window。navigator可以引用该对象，并利用它的属性来读取客户端基本信息
+            -onLine：判断是否有网络
+            -userAgent:客户端识别码（用户代理字符串）
+            -platform:操作系统
+         */
+      console.log(navigator); //
+      console.log(navigator.onLine); //检查是否有网络
+      console.log(navigator.userAgent); //客户端识别码
+      console.log(navigator.platform); //win32  操作系统
+
+      //不同浏览器兼容方法1：浏览器检测法，根据浏览器的结果 执行对应的操作
+
+      //可以适用特征检测法
+      //IE6 7 8 不识别lastElementChild  只能识别lastChild  获取最后一个子元素节点
+      //谷歌中  lastChild获取的不是最后一个子元素节点 而是最后一个子节点 只能使用lastElementChild         if(Ele.)
+      /* if(ELe.lastElmentChild){
+          console.log(ELe.lastElmentChild);
+      }else{
+          console.log(ELe.lastChild)
+      } */
+      var isWin=(navigator.userAgent.indexOf("Win")!=-1);
+      //是window系统返回true
+      console.log(isWin)
+    </script>
+  </body>
+</html>

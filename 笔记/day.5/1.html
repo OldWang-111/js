@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            用户名输入的账号和密码,只要账号不是laowang,
+            密码不是88888,我们就一直提示请重新输入,否则 提出输入成功
+
+         */
+      /* var userName = prompt("laowang");
+      var userPass = prompt("88888");
+      while (userName !== "laowang" || userPass !== "88888") {
+        userName = prompt("laowang");
+        userPass = prompt("88888");
+        confirm('请重新输入')
+      } */
+      var userName = prompt("请输入账号");
+      var userPass = prompt("请输入密码");
+      function fn() {
+        if (userName !== "laowang" && userPass !== "88888") {
+          confirm("请重新输入");
+          userName = prompt("laowang");
+          userPass = prompt("88888");
+          fn()
+        }else{
+            return;
+        }
+      }
+      fn();
+      confirm("登录成功");
+    </script>
+  </body>
+</html>

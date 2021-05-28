@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            comfirm:确认框
+                返回值判断用户是确定还是取消
+            prompt:输入框
+                返回值为输入的内容,或者是null
+        */
+      // 用户输入的账号和密码,只要账号不是laowang ,密码不是 88888,我们就一直提示请重新输入,否则 提出输入成功
+    //   var userName = prompt("请输入账号");
+    //   var userPass = prompt("请输入密码");
+      // if(userName!=='laowang'||userPass!=='88888'){
+      //     alert('请重新输入')
+      // }
+
+    //   while (userName !== "laowang" || userPass !== "88888") {
+    //     alert("请重新输入");
+    //     var userName = prompt("请输入账号");
+    //     var userPass = prompt("请输入密码");
+    //   }
+    //   alert("登录成功");
+
+      //利润
+      //储存金额
+      var m = 20000;
+      //目标
+      var c = 2 * m;
+      //利润
+      var s = prompt("输入1-1.1之间");//1.05
+      //计算多少年到两倍
+      for (var num = 0;num<Infinity; num++) {
+          m*=s;
+          if(m>c){
+              break;
+          }
+      }
+      console.log(num)//14
+    </script>
+  </body>
+</html>

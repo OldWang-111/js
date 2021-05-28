@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            while
+                -while(判断式){代码块}
+                -先执行判断式,如果成立则执行代码块
+                在执行判断式,如果成立则执行代码块
+                -.....直到判断式不成立,则while执行结束
+        */
+  /*     var a = 2;
+      while (a < 5) {
+        console.log(a);
+        a++;
+      }
+      var a = 100;
+      while (a > 5) {
+        console.log(a);
+        a--;
+      } */
+  /*    // 用while计算1到100的和
+      var i=0,c=0;
+      while(i<=100){
+           c += i;
+           i++;
+      }
+      console.log(c)  */
+
+      //将1-100中三的倍数找出来 打印
+    /*   var a = 1;
+      while(+a<=100){
+        a++;
+        if(a%3===0){
+          console.log(a)
+        }
+      } */
+      /*  do  ...while:
+            -先执行代码块,后判断,决定是否继续循环执行
+            while最少执行0次
+            do ...while最少执行一次  
+      */ 
+     var a = 1;
+      do {
+        a++;
+        if(a%3===0){
+          console.log(a)
+        }
+      }while(a<=100)
+      
+    </script>
+  </body>
+</html>

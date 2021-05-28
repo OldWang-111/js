@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt"/>
+
+    <button id="an">检测</button>
+
+    <script>
+      /*
+            数字类型   
+                -整数
+                -浮点数()小数
+                -不用的进制
+                    -二进制( 0b)表示
+                    -八进制(0,0o)表示
+                    -十六进制(0x)表示
+                -科学计数法(1.34e+10)
+                -infinity (无穷大)大于2的1024平方
+                -bumber.MAX_VALUE 整数最大值
+                -Bumber.min_VALUE 整数最小值
+                -NaN  强制将一些不能转为数字的值
+          */
+      var a = 2; //整数
+      var b = 2.2; //浮点数
+      var c = 0b111; //二进制
+      var d = 0o122; //八进制
+      var e = 0xabc; //十六进制
+      var f = 1.24e18; //科学计数法
+      var g = Number("aaa"); //NaN
+      console.log(g);
+
+      //  isNaN()方法
+      // 需求:判断用户输入的内容是不是NaN 如果是则为ture  不是为flas2
+      //第一步先获取元素
+      var oAn = document.getElementById("an");
+      var oIpt = document.getElementById("ipt");
+      //给按钮绑定一个点击事件
+      oAn.onclick = function () {
+        //点击拿到input的内容
+        //获取一个表单元素的内容 使用获取表单的value属性即可
+        var userValue = oIpt.value;
+        //打印结果
+        console.log(userValue);
+
+        //判断input内容是不是纯数字
+        //判断适用if(判断式){语句一}else{语句二} 如果判断返回true,则执行语句一,否则执行语句二
+        //适用isNaN()检测内容,如果内容不是数字,则先转为数字
+        if (isNaN(userValue)){
+            alert('输入的账号只能为数字');
+        }else{
+            alert('输入正确');
+        }
+      };
+    </script>
+  </body>
+</html>

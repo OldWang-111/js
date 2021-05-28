@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            检测数据类型:
+                typeof: 能检测出number string boolean undefined null
+
+                "===" :可以判断出null和 undefined 因为这两个类型都只有一个值
+
+                object.toString():
+                object的toString 方法返回的是的字符串中拥有当前数据类型,所以
+                我们可以让其他类型调用object的toString 方法进行检测
+
+                Object.prototype.toString.call(value).slice(8.-1)toLoveCase()
+
+        
+        */
+
+      var a = null;
+      console.log(a === null); //true
+      var b;
+      console.log(b === undefined); //true
+
+      //object的toString方法返回字符串张红拥有当前类型
+      //   console.log([].toString()); //
+      //   console.log({}.toString()); //[object Object]
+      //   console.log(null.toString());
+      //   console.log(undefined.toString());
+      //   console.log("asdad".toString()); //asdad
+      //   console.log(false.toString()); //false
+      //   console.log(true.toString()); //true
+
+      //让其他类型调用object.toString 方法
+      //要拿到object.toString 方法Object.prototype.toString
+      //改变toString 的this指向,指向要检测的类型 call方法可以改变this的指向
+      console.log(Object.prototype.toString.call([])); //[object Array]
+      console.log(Object.prototype.toString.call({}));
+      console.log(Object.prototype.toString.call("asdha"));
+      console.log(Object.prototype.toString.call(null));
+      console.log(Object.prototype.toString.call(NaN));
+      console.log(Object.prototype.toString.call(123));
+      console.log(Object.prototype.toString.call(undefined));
+      console.log(Object.prototype.toString.call(true));
+      console.log(Object.prototype.toString.call(false));
+      console.log(Object.prototype.toString.call("("));
+
+      function fn(value) {
+        return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+      }
+      var re1 = fn([]);
+      var re2 = fn({});
+      var re3 = fn("wuehf");
+      var re4 = fn(1242485);
+      var re5 = fn(undefined);
+      var re6 = fn(null);
+      console.log(re1);
+      console.log(re2);
+      console.log(re3);
+      console.log(re4);
+      console.log(re5);
+      console.log(re6);
+    </script>
+  </body>
+</html>

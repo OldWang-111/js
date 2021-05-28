@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        border: 1px solid red;
+        margin: 50px auto;
+      }
+      #con {
+        position: absolute;
+        top: 100px;
+        left: 20px;
+        width: 30px;
+        height: 30px;
+        background-color: skyblue;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div id="con"></div>
+    </div>
+    <script>
+      var oBox = document.getElementById("box");
+      var oCon = document.getElementById("con");
+      var left = true;
+      var right = true;
+      //初始化位置
+      var l = 20;
+      var t = 100;
+      setInterval(function () {
+        if (left) {
+          l += 10;
+          if (l >= oBox.clientWidth - oCon.offsetWidth) {
+            l = oBox.clientWidth - oCon.offsetWidth;
+            left = !left;
+          }
+        } else {
+          l -= 10;
+          if (l <= 0) {
+            l = 0;
+            left = !left;
+          }
+        }
+
+        if (right) {
+          t += 10;
+          if (t >= oBox.clientHeight - oCon.offsetHeight) {
+            t = oBox.clientHeight - oCon.offsetHeight;
+            right = !right;
+          }
+        } else {
+          t -= 10;
+          if (t <= 0) {
+            t = 0;
+            right = !right;
+          }
+        }
+
+        oCon.style.left = l + "px";
+        oCon.style.top = t + "px";
+      }, 20);
+    </script>
+  </body>
+</html>

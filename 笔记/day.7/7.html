@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            数组倒叙:
+                reverse()方法:
+                改变了原数组,并返回原数组的引用
+        */
+
+      var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+      var re = arr.reverse();
+      console.log(re); //[0, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+      //原数组也会发生改变,re和arr成了一个东西
+      console.log(arr); //[0, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+      console.log(re === arr); //true
+
+      /* 
+        sort方法:
+            -在原素组的基础上对数组的元素进行排序
+            -如果在调用sort的时候没有传入任何参数,则会按照字符串的格式对数组的元素进行排序
+
+            -如果想按照其他顺序进行排序,就必须想sort方法传入比较函数
+            -比较函数有两个参数,比较函数会进行比较这两个值
+            -sort内部
+                -a是后面的值,b是前面的值
+                -return的值只要是负数则交换顺序,如果是0或者是整数则不交换
+
+      */
+
+      var arr = [1, 2, 34, 265, 5, 6, 2, 34];
+      var re = arr.sort();
+      console.log(re); //[1, 2, 2, 265, 34, 34, 5, 6]
+      //按照字符串的比较方法比较
+      console.log(arr); //[1, 2, 2, 265, 34, 34, 5, 6]
+
+      var re2 = arr.sort(function (a, b) {
+        return a - b;
+      });
+      console.log(re2); //[1, 2, 2, 5, 6, 34, 34, 265]
+      //会改变之前 的函数值
+      console.log(arr); //[1, 2, 2, 5, 6, 34, 34, 265]
+
+      var re3 = arr.sort(function (a, b) {
+        return b - a;
+      });
+      //   倒叙
+      console.log(re3); //[265, 34, 34, 6, 5, 2, 2, 1]
+
+      //对象排序
+      var persons = [
+        { name: "lily1", sex: "女", age: 18 },
+        { name: "lily2", sex: "女", age: 19 },
+        { name: "lily3", sex: "女", age: 11 },
+        { name: "lily4", sex: "女", age: 28 },
+        { name: "lily5", sex: "女", age: 22 },
+      ];
+      var re4 = persons.sort(function (a, b) {
+        return a.age - b.age;
+      });
+      console.log(persons);//
+      console.log(re4);//
+    </script>
+  </body>
+</html>

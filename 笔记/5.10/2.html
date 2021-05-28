@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 5000px;
+      }
+      #box {
+        position: fixed;
+        width: 100px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: orange;
+        font-size: 20px;
+        text-align: center;
+        line-height: 45px;
+        bottom: 10px;
+        right: 10px;
+        /* display: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">回到顶部</div>
+    <script>
+      //回到顶部动画
+      var oBox = document.getElementById("box");
+      /*  window.onscroll = function () {
+        // console.log(document.documentElement.clientHeight);
+        // console.log(window.pageYOffset);
+        var a = window.pageYOffset;
+        var nowScroll = document.documentElement.clientHeight;
+        console.log(a);
+        console.log(nowScroll);
+        if (a > nowScroll) {
+          oBox.style.display = "block";
+        } else {
+            oBox.style.display = "none";
+        }
+      };
+      //窗口的高度
+      //   console.log(document.documentElement.clientHeight);
+      //   console.log(window.pageYOffset);
+      oBox.onclick = function () {
+        // var nowScroll = document.documentElement.scrollTop;
+        //   console.log(nowScroll)
+        document.documentElement.scrollTo(0, 0);
+      }; */
+
+      //动画版
+      var timer = null;
+      oBox.onclick = function () {
+        //系统滚动条的距离
+        var nowScroll = window.pageYOffset;
+        console.log(nowScroll);
+        timer = setInterval(function () {
+          nowScroll -= 100;
+          if (nowScroll <= 0) {
+            nowScroll = 0;
+            clearInterval(timer);
+          }
+          window.scrollTo(0,nowScroll)
+        }, 15);
+      };
+    </script>
+  </body>
+</html>

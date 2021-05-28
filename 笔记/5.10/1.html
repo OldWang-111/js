@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #outer {
+        width: 400px;
+        height: 45px;
+        border: 1px solid orange;
+      }
+      #box {
+        width: 0;
+        height: 100%;
+        padding-right: 1px;
+        /* border:1px solid orange; */
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <div id="box"></div>
+    </div>
+    <p>已加载<span id="span">0</span>%</p>
+    <!-- <img src="./img/images/01.jpg" alt="" /> -->
+    <script>
+      /* var oBox = document.getElementById("box");
+      var oSpan = document.getElementById("span");
+
+      var count = 0;
+      for (var i = 1; i < 31; i++) {
+        var oImg = new Image();
+        oImg.src = "./img/images/" + (i < 10 ? "0" + i : i) + ".jpg";
+        oImg.onload = function () {
+          count++;
+          var nowc = parseFloat(count / 30) * 100;
+          oBox.style.width = nowc + "%";
+          oSpan.textContent = nowc;
+        };
+      } */
+      var oBox = document.getElementById("box");
+      var oSpan = document.getElementById("span");
+      //循环创建图片节点
+      var count = 0;
+      for (var i = 1; i < 31; i++) {
+        var Img = new Image();
+        Img.src = "./img/images/" + (i < 10 ? "0" + i : i) + ".jpg";
+        Img.onload = function () {
+          count++;
+          var nowcon = parseInt(parseFloat(count / 30) * 100);
+          oBox.style.width = nowcon + "%";
+          oSpan.textContent=nowcon
+        };
+      }
+    </script>
+  </body>
+</html>

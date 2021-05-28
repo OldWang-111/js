@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            
+        */
+      //栈中保存引用地址 堆中保存对象
+      var o1 = {
+        m: 1,
+      };
+      //把引用地址给了o2
+      var o2 = o1;
+      //改变O2中的属性等于改变了堆中对象的属性 o2也改变了o1
+      o2.m = 2;
+      console.log(o1.m, o1 === o2); //2 true
+
+      //声明一个对象
+      var o3 = {
+        m: 3,
+      };
+      //将引用地址给了o4
+      var o4 = o3;
+      //o3重新赋值 引用地址指向新的对象
+      o3 = {
+        m: 4,
+      };
+      console.log(o4.m, o4 === o3); //3 false
+
+      /* 
+      var o5 = {
+        m: 5,
+      };
+      var o6 = o5;
+      function fn(obj) {
+        obj = {
+          m: 6,
+        };
+      }
+      fn(o5);
+      console.log(o5.m, o6.m, o6 === o5); //5 5 true */
+
+      var o5 = {
+        m: 5,
+      };
+      var o6 = o5;
+      function fn(obj) {
+        //把o5保存的地址值 赋值给了obj
+        //通过obj修改了 o5 o6 obj三个一起指向的对象
+        obj.m = 6;
+      }
+      fn(o5);
+      console.log(o5.m, o6.m, o6 === o5);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //快速排序
+
+      var arr = [1, 7, 4, 5, 16, 22, 12, 6, 23, 4, 6, 3, 11, 7, 4, 8, 13];
+      function fn(a) {
+        if (a <= 1) {
+          return a;
+        }
+        var center = a.pop();
+        // console.log(center);
+        var left = [];
+        var right = [];
+        a.forEach(function (item, index) {
+          if (item <= center) {
+            left.push(item);
+          } else {
+            right.push(item);
+          }
+        });
+        //合并
+        var newArr = fn(left).concat(center, fn(right));
+        return newArr;
+      }
+      var re = fn(arr);
+      console.log(re);
+    </script>
+  </body>
+</html>

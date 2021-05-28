@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 500px;
+        height: 500px;
+        background-color: red;
+        border: 2px solid #000;
+        margin: 50px;
+        padding: 10px;
+        position: relative;
+      }
+
+      .inner {
+        width: 300px;
+        height: 300px;
+        background-color: green;
+        border: 2px solid #000;
+        margin: 50px;
+        padding: 10px;
+        position: relative;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        border: 2px solid #000;
+        margin: 50px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="inner">
+        <div class="box"></div>
+      </div>
+    </div>
+    <script>
+      /* 
+            封装获取元素到文档边缘的距离
+             offsetParent:  
+                获取一个元素的最近定位父级
+                 oBox.offsetLeft
+            oBox的最近定位父级.offsetLeft
+            oBox的最近定位父级的近定位父级.offsetLeft
+            直到oBox的最近定位父级没有了, 则不再获取
+
+            oBox.offsetLeft
+            oBox.offsetParent.offsetLeft
+            oBox.offsetParent.offsetParent.offsetLeft
+            直到oBox的最近定位父级没有了, 则不再获取
+        
+        */
+    //   var oBox = document.getElementById("box");
+      var oBox = document.querySelector('.box')
+      var oInner = document.getElementById("inner");
+      var oOuter = document.getElementById("outer");
+      function fn(e) {
+        var ar = e;
+        var l = 0;
+        var t = 0;
+        while (ar) {
+            debugger;
+          if (ar === e) {
+            l += ar.offsetLeft;
+            t += ar.offsetTop;
+          } else {
+            l += ar.offsetLeft + ar.clientLeft;
+            t += ar.offsetTop + ar.clientTop;
+          }
+          ar=ar.offsetParent;
+        }
+        return{
+            left:l,
+            top:t,
+        }
+      }
+      var re= fn(oBox);
+      console.log(re.left)
+      console.log(re.top)
+
+    </script>
+  </body>
+</html>

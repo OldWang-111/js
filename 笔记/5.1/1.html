@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="ipt">账号</label><input type="text" id="ipt" name="zh"/><br/>
+
+    <label for="pass">密码</label><input type="password" id="pass" name="mm"/>
+    <button type="submit" id="but">提交</button>
+    <script>
+      var oIpt = document.getElementById("ipt");
+      var oPass = document.getElementById("pass");
+      var oBut= document.getElementById("but")
+      oBut.onclick= function fn() {
+        if (oIpt.value == "laoli" && oPass.value == "123456") {
+            alert("登录成功")
+        }else{
+            alert("账号或密码错误,请重新输入!")
+        }
+      }
+    </script>
+  </body>
+</html>

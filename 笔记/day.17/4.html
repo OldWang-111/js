@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            隐式原型:
+                每个对象都有一个隐式原型__proto__
+                每一个函数都有一个显示原型prototype
+                对象的隐式原型指向起构造函数的显示原型
+                -使用
+                    -当对象获取某个属性,自己没有的时候,会沿着隐式原型__proto__找到其构造函数的显式原型prototype
+                    -当给对象设置一个属性或方法的时候,不会通过隐式原型,而是直接给对象设置上去
+
+        */
+      var arr = [1, 2, 3];
+      console.log(arr.__proto__);
+      console.log(arr.__proto__.__proto__);
+      console.log(arr.__proto__.__proto__.__proto__); //null
+
+      function Person() {}
+      Person.prototype.say = function () {
+        console.log("555");
+      };
+      var p1 = new Person();
+      p1.say(); //555
+
+      p1.do = function () {
+        console.log("666");
+      };
+      p1.do();
+
+      p1.say = function () {
+        console.log("kshff");
+      };
+      p1.say();
+
+
+      
+    </script>
+  </body>
+</html>

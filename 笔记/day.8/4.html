@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+          快速排序
+          将一个数组中的一个数删除,提取这个数,然后把数组中的数跟这个数比较,比他大的放他后面,比他小或等于它的放前面
+          以此循环操作,
+      */
+      var arr = [3, 1, 5, 4, 7, 6, 9, 8, 9, 6, 5];
+      function num(a) {
+        //将小于1的数组直接退出循环
+        if (a.length <= 1) {
+          return a;
+        }
+        var center = a.pop();
+        //创建新数组将比他小的值放在left中
+        var left = [];
+        //将比他大的数放在right中
+        var right = [];
+        a.forEach(function (item, index) {
+          if (item <= center) {
+            left.push(item);
+          } else {
+            right.push(item);
+          }
+          
+        });
+        var newArr = num(left).concat(center,num(right));
+        return newArr;
+      }
+      //调用函数
+      var re=num(arr);
+      console.log(re);
+      console.log(arr);
+    </script>
+  </body>
+</html>

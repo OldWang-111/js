@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        margin: 50px;
+        width: 600px;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      #sm {
+        width: 100%;
+        border: 1px solid red;
+      }
+      #sm li {
+        float: left;
+        width: 198px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid red;
+        text-align: center;
+      }
+      #text li {
+        display: none;
+        width: 100%;
+        border: 1px solid red;
+        height: 300px;
+        font-size: 40px;
+        text-align: center;
+        line-height: 300px;
+      }
+      #text .show {
+        clear: both;
+        display: block;
+      }
+      #sm .menu {
+        color: white;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <ul id="sm">
+        <li class="menu">菜单一</li>
+        <li>菜单二</li>
+        <li>菜单三</li>
+      </ul>
+      <ul id="text">
+        <li class="show">内容一</li>
+        <li>内容二</li>
+        <li>内容三</li>
+      </ul>
+    </div>
+
+    <script>
+      var oMenu = document.getElementById("sm");
+      var oShow = document.getElementById("text");
+      var oUserMenu = oMenu.getElementsByTagName("li");
+      var oUSerShow = oShow.getElementsByTagName("li");
+      console.log(oUserMenu);
+      for (var i = 0; i < oUserMenu.length; i++) {
+        oUserMenu[i].onclick = function () {
+          for (var i = 0; i < oUserMenu.length; i++) {
+            if (oUserMenu[i] === this) {
+            oUserMenu[i].classList.add("menu");
+            oUSerShow[i].classList.add("show");
+          } else {
+            oUserMenu[i].classList.remove("menu");
+            oUSerShow[i].classList.remove("show");
+          }
+          }
+        };
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">点我</button>
+    <img src="" alt="" abc="" class="img2" say="how are you" />
+    <script>
+      var oImg = document.querySelector("img");
+      /* 
+            oImg是当前获取的DOM节点对象
+            这个节点对象的苏醒分为两种：
+            -作为元素节点来说，属性是当前元素上定义的属性
+            -作为js对象来说，每个对象可以扩展自己的属性和方法，和元素上的属性没有任何关系
+
+            这只节点对象的属性：
+                -如果这个属性是标签自有的属性，则执行通过ELE.XXX设置或获取，
+                但是有的属性和关键字冲突了需要改变，比如class ,需要写成className
+             
+                
+            设置自定义属性：
+
+        */
+      var oBtn = document.getElementById("btn");
+      oBtn.onclick = function () {
+          //自有 的属性
+          oImg.alt="abc"
+        //   oImg.src="./12462348.gif"
+        oImg.className="123 s456"
+        //自定义的属性 
+        oImg.setAttribute("abc", "helloabc")
+        //删除属性
+        oImg.removeAttribute("alt")
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str=" http://www.baidu.com?username=xiaowang&password=12345&age=18&sex=女&score=90"
+        var arr={};
+        str.split('?')[1].split("&").forEach(function(item,index){
+            var keyValue=item.split("=")
+            var key=keyValue[0];
+            var value=keyValue[1];
+            arr[key]=value;
+        })
+        console.log(arr);
+        var str2="heep://www.baidu.com?"
+        for(var key in arr){
+            var str3=key+"="+arr[key]+"&";
+            str2+=str3;
+        }
+        var re=str2.slice(0,-1)
+        console.log(re)
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        margin: 100px auto;
+        background-color: rgb(61, 58, 58);
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <button id="anniu">点击</button>
+
+    <script>
+      //boolean类型:
+      // 只有两个值:true false
+      // true 代表真
+      //flase 代表假
+      // 一版通过判断得到boolean值
+
+      /* 需求:
+            默认box背景颜色红色,点击按钮让元素的背景颜色变成黄色之间切换
+            过程:
+                1.获取元素
+                2.给bth 绑定点击事件
+                3.因为是两个状态的切换,所以可以用一个变量薄脆布尔值来代替两种状态
+
+        */
+      //获取元素
+      var oAnniu = document.getElementById("anniu");
+      var oBox = document.getElementById("box");
+      //初始化一个开关 保存状态
+      var flag = true; //因为初始的按钮是hui的,所以默认值ture代表当前灰色
+
+      //给按钮绑定点击事件
+      oAnniu.onclick = function () {
+        //判断flag 如果flag是ture 则代表红色
+        if (flag) {
+            //让box的背景颜色改变为绿色
+            //改变元素的样式 元素.style.样式属性="值"
+          oBox.style.backgroundColor = "yellow";
+          //当box状态改变之后,我们把开关的状态给切换
+          flag = false;
+        } else {
+          oBox.style.backgroundColor = "red";
+          flag = true;
+        }
+      }
+    </script>
+  </body>
+</html>

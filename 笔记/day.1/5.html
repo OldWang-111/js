@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a;
+        console.log(a);//undefined  定义了变量没有赋值
+
+        /*
+            Undefined 类型
+                -Undefined 类型只有一个undefined
+                   undefined 一般是一种错误的结果，通常不会自己设置
+                   undefined 代表这未定义 
+
+            出现的场景：
+                -声明变量的时候没有赋值
+                -函数需要参数，但是调用函数的时候没有传参会返回undefined
+                -获取对象属性值的时候，但是没有这个属性的时候，返回undefined
+                -当函数没有返回值的时候，返回的是undefined
+        */
+
+            // 场景2：
+            // 封装一个函数，随时调用可以将函数内部代码执行
+            // name,sex,age 声明的形参（ 变量）
+            function self(name,sex,age){
+                console.log("名字" + name)
+                console.log("性别" + sex)
+                console.log("年龄" + age)
+            }
+            self("ww","nan",20)//函数掉用，一个值对应一个变量
+            self("ww","nan")//少写一个  age 返回一个“年龄undefined”
+
+
+            //场景3：
+            //定义一个对象
+            var student = {
+                name:"haijing",
+                age:"45",
+                sex:"nan"
+            }
+            //获取对象的内容
+            console.log( student.name)//返回"haijing" 
+            console.log( student.height)//没有height这个内容返回"undefined"
+
+
+            //场景4：
+            //封装函数  计算两个值的和
+            function add(a,b){
+                console.log(a + b);
+                // 这个函数仅仅是打印了结果，我们并拿不到结果？
+                // 如果你需要拿到函数的执行结果 需要把执行结果返回
+                //return a + b;  //返回一个结果 不加返回结果返回undefined
+            }
+            var re = add(2,3);
+            console.log(re)  //undefined
+
+
+
+            /*
+                Null 类型：
+                    Null只有一个值 null
+                    代表空的意思
+
+                出现的场景：
+                    -当现在需要定义一个变量，但是未来才赋值的时候，可以把变量设置为null
+                    -当函数需要参数，但不想传递的时候，可以传递一个null
+                    -把一个对象变成垃圾对象，可以将变量赋值为null 
+                    -原型链终点就是null
+            */
+           //场景1：
+           var a = null;//将它的变量设置为null
+           a =3;        //要使用的时候更改变量的值
+
+           //场景2：
+           function self(name,sex,age){
+               console.log("名字" + name)
+               console.log("性别" + sex)
+               console.log("年龄" + age)
+           }
+           self("海静",null,18)//不想传递性别，将它参数设置为null
+
+
+           //场景3：
+           //
+           var o = {
+
+           }
+           console.log(o)
+           //更改变量的值
+           o = null;//一旦一个对象不被任何变量引用的时候，这个对象就不可能别使用了，这个对象就会变成垃圾对象
+           //垃圾对象会被清理掉，但不会马上清理，得等垃圾车
+    </script>
+
+</body>
+</html>

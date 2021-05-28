@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">点击</button>
+    <ul class="box">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+    <script>
+      /* 
+        创建一个元素或者文本节点用变量保存
+        然后调用
+        创建必须用document.createElement/document.textContent
+        */
+      /* 
+            插入节点：
+                -a.appendchild(b)
+                   把b插入到a的元素内部的末尾，（a是父元素）
+
+                -a.insertBefore(new,old)
+                   a是父元素，把new插入到old元素的上面位置（new和old是兄弟元素）
+
+
+        
+        */
+      var oBtn = document.getElementById("btn");
+      var oLis = document.querySelectorAll(".box li");
+      var oBox = document.querySelector(".box");
+
+      /*   //插入li
+      oBtn.onclick = function () {
+          var newLi = document.createElement("li")
+          oBox.appendChild(newLi);
+        //   oBox.textContent="newLi";
+          console.log(newLi)
+          //把元素节点插入到某个元素上面位置
+          oBox.insertBefore(newLi,oLis[2])
+      }; */
+
+      /* 
+        复制节点
+            cloneNode()方法
+            -参数是一个布尔值，代表深复制和浅复制
+            深复制 true 复制当前元素及内部所有后代元素
+            浅复制 false 复制当前元素  不会复制内部的子元素和后代元素
+
+      
+      */
+      //没有填效果跟false一样
+      /* var newBox1=oBox.cloneNode();
+     var newBox2=oBox.cloneNode(true);
+     var newBox3=oBox.cloneNode(false);
+      console.log(newBox1)
+      console.log(newBox2)
+      console.log(newBox3) */
+
+      /* 
+        替换节点
+            a.replaceChild(new,old)
+            a是父元素， 把new替换old
+      
+      */
+      //  oBox.replaceChild(oLis[2],oLis[3])
+      // var newLi=document.createElement("li")
+      // oBox.replaceChild(newLi,oLis[1])
+
+      /* 
+      删除节点
+        -aremoveChild(b)
+           a是父元素，删除元素中的b
+
+        a.remove()  删除a
+    
+    */
+    //   oBox.removeChild(oLis[2]);
+    //   oLis[3].remove();
+      //当点击a的时候删除a所在的父元素li
+      
+    </script>
+  </body>
+</html>

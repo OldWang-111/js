@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <textarea id="box"></textarea>
+    <script>
+      /* 
+            键盘事件中，event事件对象有一个keyCode属性，代表当前的键码
+
+
+        
+        */
+      //onkeydown 键盘事件
+      /* document.onkeydown = function (e) {
+          console.log(e.keyCode)
+      }; */
+      var oBox = document.getElementById("box");
+      //e.ctrlkey  ctrl
+      //禁止ctrl + c
+      oBox.onkeydown = function (e) {
+        if (e.keyCode === 67 && e.ctrlKey) {
+          return false;
+        }else if(e.keyCode===86&&e.ctrlKey){
+            return false;//禁止Ctrl + v
+        }
+      };
+    </script>
+  </body>
+</html>

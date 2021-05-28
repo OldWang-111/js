@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+          position: fixed;
+        width: 100px;
+        height: 100px;
+
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      /* 
+            event事件对象：
+                关于当前时间所有的详细信息
+        
+        */
+      /*  var oBox = document.getElementById("box");
+      oBox.onclick = function (e) {
+        console.log(e);
+        console.log(arguments);
+        console.log(window.event);
+      }; */
+
+      /* 
+        鼠标的位置：
+            clientX:获取事件发生的时候，鼠标到窗口边缘的距离
+            offsetX:获取事件发生的时候，鼠标到目标元素的距离
+            pageX:获取事件发生的时候鼠标到文档边缘的距离
+            screenX:获取事件发生的时候，鼠标到屏幕边缘的距离
+      
+      */
+      var oBox = document.getElementById("box");
+      document.onmousemove = function (e) {
+          oBox.style.top=(e.clientY-oBox.offsetHeight/2)+"px";
+          oBox.style.left=(e.clientX-oBox.offsetWidth/2)+"px";
+      };
+    </script>
+  </body>
+</html>

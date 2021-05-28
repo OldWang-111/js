@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 判断一个数是否是素数(又叫质数， 只能被1和自身整数的数)
+      /* function fn(a) {
+        for (var i = 2; i < a; i++) {
+          if (a % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+
+
+      var re = fn(9);
+      console.log(re);
+      if (re === true) {
+        alert("是质数");
+      } else {
+        alert("不是质数");
+      } */
+
+      /*  // 求任意个数的和
+      var he = 0;
+      function fn() {
+        console.log(arguments.length)
+        for (i = 0; i < arguments.length; i++) {
+            he +=arguments[i]
+        }
+      }
+      fn(2, 3, 5, 6, 7, 8,8,64,3);
+      console.log(he) */
+
+      // 求任意个数的最大值
+      /*  function fn() {
+        var max = 0;
+        for (var i = 0; i < arguments.length; i++) {
+          if (max < arguments[i]) {
+            max = arguments[i];
+          }
+        }
+        return max;
+      }
+      var re = fn(2, 8, 4, 100, 2, 45, 6, 235);
+      console.log(re); */
+
+      // 打印出3-100之间所有的质数
+      /*   function fn() {
+        outer: for (var i = 3; i < +100; i++) {
+          for (var j = 2; j < i; j++) {
+            if (i % j === 0) {
+              continue outer;
+            }
+          }
+          console.log(i);
+        }
+      }
+      fn(); */
+
+      function fn() {
+        for (var i = 3; i <= 100; i++) {
+          var flag = true;
+          for (var j = 2; j < i; j++) {
+            if (i % j === 0) {
+              flag = false;
+            }
+          }
+          if (flag === true) {
+            console.log(i);
+          }
+        }
+      }
+      fn();
+    </script>
+  </body>
+</html>

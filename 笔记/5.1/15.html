@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function fn() {
+        for (var i = 0; i < arguments.length; i++) {
+          if (arguments[i] > arguments[i + 1]) {
+            var a = arguments[i];
+            arguments[i] = arguments[i + 1];
+            arguments[i + 1] = a;
+          }
+        }
+        return arguments[arguments.length-1]
+      }
+      var re = fn(1, 4, 6, 3, 7, 8, 3);
+      console.log(re);
+    </script>
+  </body>
+</html>

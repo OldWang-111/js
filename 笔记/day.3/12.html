@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        ul li{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 20px;
+            background-color: #def;
+            margin-top: 2px;
+            
+        }
+    </style>
+  </head>
+  <body>
+    <ul id="box">
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+    </ul>
+    <script>
+      //给每个li绑定点击事件,弹出"hello world"
+      var oBox = document.getElementById("box");
+      var oLis = oBox.getElementsByTagName("li");
+      console.log(oLis); //olis是包含所有元素的一个容器(集合)
+
+      //只能对元素绑定事件或者操作,那么要获取这个集合中的内容
+      console.log(oLis[0]);
+      console.log(oLis[1]);
+      console.log(oLis[2]);
+      console.log(oLis[3]);
+      console.log(oLis[4]);
+
+      for(var i = 0;i<oLis.length;i++){
+        oLis[i].onclick=function(){
+            alert('hello world')
+        }
+      }
+    </script>
+  </body>
+</html>

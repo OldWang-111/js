@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            1.判断context
+            2.给context扩展一个方法ff
+            3.调用context.ff
+            4.删除ff
+            5.获取实参 在调用ff的时候,传入
+            6.把ff这个名字换了
+        */
+
+      // 手写call
+      // -call是每个函数都有的方法
+      //-call可以改变函数的this指向
+      //-call可以调用函数
+      //函数执行的时候call可以给函数传入实参
+
+      Function.prototype.myCall = function (context) {
+        //根据call的特征判断context的类型
+        //如果context是null或者undefined则context应该为window
+        if (context === null || context === undefined) {
+          context = window;
+        }
+        //判断是否是基本包装类型
+        if (typeof context != "object" && typeof context != "function") {
+          context = Object(context); //
+        }
+        //如果是对象类型不进行修改,context直接指向该对象
+
+        //获取调用mycall是传入的实参arguments 用数组保存
+        //slice截取会直接返回截取的元素组成的数组
+        var arg = Array.from(arguments).clice(1);
+        console.log(arg);
+        //此时this指向的是mycall的调用者
+        //目标 让调用者的this指向context
+        //给context扩展一个方法ff,
+        context.ff = this;
+        //如果context调用了ff方法，则说明：fn调用了，fn的this指向了context
+        context.ff();
+        eval("context.ff(" + arg.toString() + ")");
+
+        //因为为了实现逻辑，给context扩展了一个方法，因为这个方法在后来不需要了，所以可以把这个方法删除
+        // delete context.ff;
+        delete context.ff;
+      };
+      function fn(a, b) {
+        console.log(this, a + b);
+      }
+      fn.myCall("12", 3, 4);
+    </script>
+  </body>
+</html>

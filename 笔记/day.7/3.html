@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+                 数组头部操作
+                     unshift
+                         -向数组头部插入一个或多个值
+                         -改变了原素组 返回改变后数组的长度
+
+                     -shift
+                         -删除数组头部的第一个值
+                         -改变了原数组,返回删除的值
+             */
+
+      //unshift
+      /*  var arr = [1, 2, 3, 3, 4, 5, 7];
+           var re = arr.unshift(1, 3, 5);
+           console.log(arr); //[1, 3, 5, 1, 2, 3, 3, 4, 5, 7]
+           console.log(re); //10
+
+           var re2 = arr.shift();
+           //   var re2 =arr.shift();
+           console.log(re2); //1   3
+           console.log(arr); //[3, 5, 1, 2, 3, 3, 4, 5, 7]
+      */
+      //击鼓传花
+      //循环数到b踢出那个猴子
+      function fn(a, b) {
+        //创建新数组保存猴子
+        var r = [];
+        //遍历猴子保存数组中
+        for (var i = 1; i <= a; i++) {
+          r.push(i);
+        }
+        console.log(r);
+        while (r.length > 1) {
+          for (var i = 1; i < b; i++) {
+            r.push(r.shift());
+          }
+          r.shift();
+        }
+        return r;
+      }
+      var re2 = fn(10000, 41);
+      console.log(re2);
+    </script>
+  </body>
+</html>

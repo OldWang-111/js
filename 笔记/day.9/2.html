@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //绝对值
+      console.log(Math.abs(-123));
+      //Math.ceil()向上取整
+      console.log(Math.ceil(3.14));
+      //Math.floor()向下取整
+      console.log(Math.floor(3.15));
+      //Math.round()四舍五入
+      console.log(Math.round(3.4));
+      console.log(Math.round(3.5));
+      //Math.max() Math.min()
+      console.log(Math.max(1, 6, 2, 5, 2, 24, 23, 42, 34));
+      console.log(Math.min(1, 6, 2, 5, 2, 24, 23, 42, 34));
+      //Math.pow(a,b)求a的b次方
+      console.log(Math.pow(3, 10));
+      //Math.sqrt() 求平方根
+      console.log(Math.sqrt(2));
+      //弧度=弧长/半径
+      /* 
+        一个圆的弧长2*PI*r
+        一个圆的弧度： 2 * PI * r / r = 2 * PI 
+        */
+      function fn(a, b) {
+        return Math.floor(Math.random() * (b - a) + a);
+      }
+    </script>
+  </body>
+</html>

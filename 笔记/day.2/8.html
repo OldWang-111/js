@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            乘法运算符  "*"
+                所有全部转换成number进行乘法运算
+            
+            除法运算符  "/"
+                所有全部转换成number进行除法运算
+
+            求模(取余) "%"
+                全部转为number进行除余
+                    取余的符号只看被除数,8/3 8是被除数  3是除数
+
+            减法运算符 "-"
+                全部转成number进行减法运算
+            
+            加法运算符 "+"
+                只要两个操作数中出现一个字符串,则转换成字符串进行拼接
+                出现对象,转换成字符串进行拼接
+        */
+
+        var age = 20;
+        var name = 'laowang';
+        var hobby = 'html5';
+        // 字符串和变量拼接
+        var str = "我是"+name+",我今年"+age+"岁,我喜欢"+hobby;
+        console.log(str)
+        var str = 1+2+2+'4';//54
+        console.log(str)
+        var str = 1+'2'+3+4+5;//12345
+        console.log(str)
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            事件模型（绑定事件的方式）
+                -基本事件模型（DOM0）
+                -DOM2事件模型（符合W3C规范）
+                -IE事件模型（IE支持）
+                -网景事件模型（现在没有了）
+        
+
+            事件流（机制）：
+                事件流就是多个节点对象对同一种事件进行响应先后顺序，
+                主要包括以下三种类型
+                -冒泡：IE提出，从最精确的元素（target目标元素）依次传播到外层元素
+                -捕获：网景提出，由最不精确的依次传播到最精确的元素（target目标元素）
+                -W3C事件流：三个阶段
+                    -捕获
+                    -执行目标元素的事件
+                    -冒泡
+
+        */  
+       /* 
+       DOM绑定事件：
+            给元素的时间属性赋值一个时间处理函数即可
+            -DOM0如果给同一个元素事件绑定多个，则会覆盖
+            -DOM0只支持冒泡
+
+
+        DOM2绑定事件：
+            -使用addEventListener()方法对一个元素注册一个事件
+            -参数一：事件名（不带on）
+            -参数二：事件的处理函数
+            -参数三：布尔值true代表捕获false代表冒泡（默认flase）
+       
+            特点：可以对同一个事件进行多次绑定可以控制捕获和冒泡
+                先执行捕获 ，再执行冒泡
+
+
+        IE事件模型
+            -使用 attachEvent  方法绑定事件
+            -参数1：on+事件名
+            -参数2：事件函数
+            -IE事件模型只能支持冒泡
+       */
+    </script>
+</body>
+</html>

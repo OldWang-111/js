@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            作用域:
+                -变量作用域(scope)是指变量在程序中可以访问的有效范围
+                -作用域分为全局作用域和局部作用域,ES3中,作用域是通过函数来
+                划分的,函数内部的都是局部作用域
+
+            全局作用域:
+                -在最外层声明的变量都属于全局变量
+                -全局变量和全局函数 都是window对象的属性和方法
+
+        */
+      //声明的a是全局变量
+      var a = 0;
+
+      //这个函数也是全局的函数
+      function fn() {
+        console.log(111);
+      }
+      fn();
+      /* 
+            在ES规定中global作为js的全局顶层对象,但是在浏览器中并没有实现
+            但是window对象一直扮演者Global的角色,作为js的全局对象
+       */
+      console.log(window.isNaN);
+      console.log(window);
+
+      /* 
+            局部作用域:
+                -我们使用函数划分作用
+                -函数内部的作用域统称为局部作用域
+       */
+      //全局作用域
+      var a = 1;
+
+      function fn1() {
+        //a是全局作用域的在函数中可以调用
+        console.log(a);
+        //函数内部统称为局部作用域
+        var b = 2;
+        //b是函数内部的,所以可以调用
+        console.log(b);
+        var d = 4;
+        //fn2 又重新构造了一个局部作用域
+        function fn2() {
+          //a.b在他的父作用域和祖辈作用域中,可以调用
+          console.log(a, b);
+          var c = 4;
+          console.log(d);
+          //获取到b 然后将b的值修改了
+          b = 7;
+        }
+        fn2();
+        //console.log(c); c是fn2中的变量,不可以访问
+        console.log(b); //7  fn2中改变变量值同样会使他改变
+      }
+      fn1()
+      //fn2() //fn2 同样不在全局作用域中
+      //   console.log(c)   c不在全局作用域中所以不能调用(报错undefined)
+      // console.log(d)  d同样不在全局作用域中
+    </script>
+  </body>
+</html>

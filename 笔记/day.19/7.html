@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">主线程</button>
+    <button id="btn2">分线程</button>
+    <script>
+      /*   var sum = 0;
+      console.time("timer1");
+      for (var i = 0; i < 100000000; i++) {
+        sum += Math.sqrt(i);
+      }
+      console.timeEnd("timer1") */
+      var oBtn = document.getElementById("btn");
+      var oBtn2 = document.getElementById("btn2");
+      oBtn.onclick = function () {
+        var r = 0;
+        for (var i = 0; i < 1000000000; i++) {
+          r += Math.sqrt(i);
+        }
+        console.log(r);
+      };
+
+      //分线程
+      oBtn2.onclick = function () {
+        var ww = new Worker("./worker.js");
+        //postMessage方法事项某个线程传递信息
+        ww.postMessage(100000000);
+        //当分线程发送数据后,主线程需要监听,onmouseage事件监听
+        ww.onmessage = function (e) {
+          console.log(e.data);
+          //当接收到数据之后,要关闭分线程使用terminate方法
+          ww.terminate();
+        };
+      };
+    </script>
+  </body>
+</html>

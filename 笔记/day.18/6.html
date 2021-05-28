@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+        构造函数返回值:
+            -构造函数默认返回实例化对象
+            -构造函数return一个基础类型值的时候,不会影响返回实例化对象
+            -如果构造函数返回一个object类型的值的时候,构造函数将不会返回实例化对象,而是返回这个object类型的值
+        
+        */
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        // return null;
+        // return "sdfs";
+        // return 1231;
+        // return [1, 2, 3, 4];
+        // return function () {
+        //   console.log("123");
+        // };
+        // return {};
+        // return false;
+        // return true;
+        return /\s/gi;
+      }
+      console.log(new Person()); //Person
+      console.log(new Person()); //Person
+      console.log(new Person()); //Person
+      console.log(new Person()); // [1, 2, 3, 4]
+      console.log(new Person()); //f(){}
+      console.log(new Person()); //{}
+      console.log(new Person()); //Person
+      console.log(new Person()); //Person
+      console.log(new Person()); ///\s/gi
+    </script>
+  </body>
+</html>

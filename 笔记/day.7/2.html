@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+            转换任何进制
+        */
+      function fn(a, b) {
+        var r = null;
+        var num = "";
+        var base = "0123456789abcdefghijklmnopqrstuvwxyz";
+        while (a > 0) {
+          r = base[a % b];
+          num += r;
+          a = parseInt(a / b);
+        }
+        console.log(num);
+        var newnum = "";
+        for (var i = num.length - 1; i >= 0; i--) {
+          newnum += num[i];
+        }
+        console.log(newnum);
+      }
+      fn(12345645, 31);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <li>123</li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </div>
+    <script>
+        /* 
+            DOM
+                -加载HTML页面是.web浏览器生成一个树状结构,用来表示页面内部结构.DOM
+                将这种树状就够理解为由节点组成的DOM树
+                -DOM规定了一系列标准接口,允许开发人员通过标椎方式访问文档结构,操作网页内容,
+                控制样式行为等
+                -在DOM中,接口可以理解为就是函数(函数  方法  API  接口)
+                -document:DOM顶层对象
+
+            什么是节点:
+                -在网页中所有对象和内容都被称为节点.
+                -如文档节点,元素节点,文本节点,属性节点,注释节点等.
+                -节点(Node)是DOM最基本的单元,并派生出不同类型的节点,他们共同构成了文档的树状结构模型
+
+            childNodes:获取一个节点内所有的子节点
+                -返回一个nodeList对象(吱声拥有forEach方法 可以遍历)
+                -nodeType:获取节点的类型
+                -nodeName:节点名称
+                -nodeValue:节点的值
+        */
+       var oBox=document.getElementById('box');
+       console.log(oBox.childNodes);
+       var attr=document.createAttribute("hello")
+       attr.value="world";
+       console.log(attr);
+    </script>
+
+</body>
+</html>

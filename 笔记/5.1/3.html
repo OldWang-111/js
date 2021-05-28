@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        width: 30px;
+        outline: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input type="text" id="ipt1" />
+    <span>+</span>
+    <input type="text" id="ipt2" />
+    <span>=</span>
+    <input type="text" readonly id="ipt3" />
+    <button type="button" id="but">计算</button>
+    <script>
+      var oIpt1 = document.getElementById("ipt1");
+      var oIpt2 = document.getElementById("ipt2");
+      var oIpt3 = document.getElementById("ipt3");
+      var oBut = document.getElementById("but");
+      oBut.onclick = function () {
+        if (isNaN(oIpt1.value) || isNaN(oIpt2.value)) {
+          alert("请输入纯数字");
+          return;
+        } else {
+          oIpt3.value = (Number(oIpt1.value) + Number(oIpt2.value));
+        }
+      };
+    </script>
+  </body>
+</html>

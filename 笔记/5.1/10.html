@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="sex">性别</label><input type="text" id="sex" />
+    <label for="age">年龄</label><input type="text" id="age" />
+    <label for="hun">婚姻情况</label><input type="text" id="hun" />
+    <button type="button" id="but">查看</button>
+
+    <script>
+      var oBut = document.getElementById("but");
+      oBut.onclick = function () {
+        var oSex = document.getElementById("sex").value;
+        var oAge = document.getElementById("age").value;
+        var oHun = document.getElementById("hun").value;
+        if (oHun === "已婚") {
+          alert("买");
+        } else if (oSex === "男" && oAge >= 25) {
+            alert("买")
+        }else if(oSex==="女"&&oAge>=22){
+            alert("买")
+        }else{
+            alert("不买")
+        }
+      };
+    </script>
+  </body>
+</html>

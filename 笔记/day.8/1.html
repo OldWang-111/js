@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = [321, 453, 4236, 234, 263, 0, 633, 263, 0, 684, 23, 321];
+      // 1.将数组的0去掉
+      /*  arr.forEach(function(item,index){
+            if(item===0){
+                arr.splice(index,1);
+            }
+        });
+        console.log(arr);//[321, 453, 4236, 234, 263, 633, 263, 684, 23, 321] */
+
+      // 2.数组排序去重
+      /*  arr.sort(function (a, b) {
+        return a - b;
+      });
+      console.log(arr); //[0, 0, 23, 234, 263, 263, 321, 321, 453, 633, 684, 4236] */
+      //遍历数组
+      //1.
+      /* for (i = 0; i < arr.length; i++) {
+        if (arr[i] === arr[i + 1]) {
+          arr.splice(i + 1, 1);
+        }
+      }
+      console.log(arr);// [0, 23, 234, 263, 321, 453, 633, 684, 4236] */
+      //2.
+      //创建一个新数组存放去重后的数组
+      /*    var newArr = [];
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i] !== arr[i + 1]) {
+          newArr.push(arr[i]);
+        }
+      }
+      console.log(newArr); //[23, 234, 263, 321, 453, 633, 684, 4236]
+      console.log(arr);//[0, 0, 23, 234, 263, 263, 321, 321, 453, 633, 684, 4236] */
+
+      // 3.返回数组的最大最小值
+      /*   arr.sort(function(a,b){
+          return a-b;
+      })
+      console.log(arr);//[0, 0, 23, 234, 263, 263, 321, 321, 453, 633, 684, 4236]
+      console.log(arr[0]);//0
+      console.log(arr[arr.length-1]);//4236 */
+
+      // 4.求一组数中的所有数的和和平均值
+      /* var max = 0;
+      var cen = 0;
+      arr.forEach(function (item, index) {
+        max += item;
+        cen = parseFloat(max / arr.length);
+      });
+      console.log(max);//7431
+      console.log(cen);//619.25 */
+
+      // 5.翻转数组
+      /*  arr.reverse();
+      console.log(arr);//[321, 23, 684, 0, 263, 633, 0, 263, 234, 4236, 453, 321] */
+      var newArr = [];
+      while (arr.length > 0) {
+        newArr.push(arr.pop());
+      }
+      console.log(newArr); //[321, 23, 684, 0, 263, 633, 0, 263, 234, 4236, 453, 321]
+    </script>
+  </body>
+</html>

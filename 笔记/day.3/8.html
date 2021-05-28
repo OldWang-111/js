@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt" />
+    <button id="but">查看</button>
+    <script>
+      /*
+      用户输入成绩 然后弹出成绩的等级
+          90-100:S
+          80-90:A
+          70-80:B
+          60-70:C
+          0-60:D
+      */
+      var oIpt = document.getElementById("ipt");
+      var oBut = document.getElementById("but");
+
+      // oBut.onclick=function(){
+      //     // 获取用户的成绩
+      //     var useript =+oIpt.value;
+      //     if(useript>=90){
+      //         alert("S")
+      //     }else if(useript>=80){
+      //         alert('A')
+      //     }else if(useript>=70){
+      //         alert('B')
+      //     }else if(useript>=60){
+      //         alert('C')
+      //     }else if(useript>=0){
+      //         alert('D')
+      //     }
+      // }
+
+      oBut.onclick = function () {
+        var useript = +oIpt.value;
+        if (useript > 100 || useript < 0) {
+          alert("请输入正确的成绩");
+        } else if (parseInt(useript / 10) >= 9) {
+          alert("S");
+        } else if (parseInt(useript / 10) >= 8) {
+          alert("A");
+        } else if (parseInt(useript / 10) >= 7) {
+          alert("B");
+        } else if (parseInt(useript / 10) >= 6) {
+          alert("C");
+        } else {
+          alert("D");
+        }
+      };
+    </script>
+  </body>
+</html>

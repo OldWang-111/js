@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Function.prototype.myBind = function (context) {
+        //这个this表示调用这个方法的函数的this
+        var _this = this;
+        //获取出入的参数
+        var arg = Array.from(arguments).slice(1);
+        //bind返回的是个改变后的函数
+        return function () {
+          //当这个函数执行的时候,在获取调用bind的函数fn,然后调用fn,并改变fn的this指向
+          _this.apply(context, arg);
+        };
+      };
+      function fn(a, b) {
+        console.log(this, a + b);
+      }
+      var re = fn.myBind({ name: "123" }, 4, 5);
+      re();
+    </script>
+  </body>
+</html>

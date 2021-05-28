@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /* 
+            一个操作符运算:一元运算
+                +a :可以把a转为number类型
+
+            类型转换number:
+                -number 方法
+                -parseint,parsefloat
+                -一元运算的+
+                -  减0  乘1  除1
+        */
+
+      console.log(+"1"); //1
+      console.log(+"asd"); //NaN
+      console.log(+null); //0
+      console.log(+undefined); //NaN
+      console.log(+NaN); //NaN
+      console.log(+true); //1
+      console.log(+[]); //0
+      console.log(+{}); //NaN
+
+      /* 
+            三元运算符:
+                判断式a?表达式b:表达式c:
+                    -先执行判断式a,如果判断式a返回true,则执行表达式b,并且三元运算符返回表达式b的返回值
+                    -执行判断式a,如果判断式a返回false,则执行表达式c,并且三元运算符返回表达式c的返回值
+        */
+      //有变量a,b如果a大于3,则b等于5,否则b等于6
+      var a = 2;
+      var b = 2;
+      if (a > 3 ? (b = 5) : (b = 6)) {
+      }
+      console.log(b);//6
+
+      b = a > 3 ? 5 : 6;
+      console.log(b);//6
+      //简写
+      //有变量a,b ,如果a大于3,则b等于5,否则b等于6
+
+      var a = 4,
+          b = 1;
+
+      //if
+      if (a > 3) {
+        b = 5;
+      } else {
+        b = 6;
+      }
+      console.log(b);//5
+      //三元
+      b = a > 3 ? 5 : 6;
+      console.log(b);//5
+
+      //与或非
+      a > 3 && (b = 5);
+      a > 3 || (b = 6);
+
+      a > 3 && (b = 5) || (b = 6);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <script>
+      //拖拽元素
+      var oBox = document.getElementById("box");
+      oBox.onmousedown = function (e) {
+        //获取鼠标到目标元素边缘的位置
+        var downLocation = {
+          left: e.offsetX,
+          top: e.offsetY,
+        };
+        // console.log(downLocation.top)
+        document.onmousemove = function (e) {
+          //获取鼠标到视口边缘的位置
+          var oBoxLocation = {
+            left: e.clientX,
+            top: e.clientY,
+          };
+          //获取obox的最终位置  oboxLocation-downLocation
+          var nowLocation = {
+            x: oBoxLocation.left - downLocation.left,
+            y: oBoxLocation.top - downLocation.top,
+          };
+          //   console.log(nowLocation.x)
+          //   console.log(nowLocation.y)
+          //判断临界值
+          if (nowLocation.x <= 0) {
+            nowLocation.x = 0;
+          } else if (nowLocation.x >= document.documentElement.clientWidth - oBox.offsetWidth){
+              nowLocation.x=document.documentElement.clientWidth - oBox.offsetWidth;
+          }
+          if(nowLocation.y<=0){
+              nowLocation.y=0;
+          }else if(nowLocation.y>=document.documentElement.clientHeight-oBox.offsetHeight){
+              nowLocation.y=document.documentElement.clientHeight-oBox.offsetHeight;
+          }
+        oBox.style.left = nowLocation.x + "px";
+        oBox.style.top = nowLocation.y + "px";
+        //鼠标抬起结束移动
+          document.onmouseup=function(){
+            document.onmousemove=null;
+            document.onmouseup=null;
+          }
+        };
+      };
+    </script>
+  </body>
+</html>

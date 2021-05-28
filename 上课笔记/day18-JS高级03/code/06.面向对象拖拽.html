@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                /*    margin-left: 10px;
+                margin-top: 10px; */
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            #box {
+                background-color: red;
+            }
+
+            #box2 {
+                background-color: pink;
+            }
+
+            #box3 {
+                background-color: yellowgreen;
+            }
+
+            #box4 {
+                background-color: blueviolet;
+            }
+            #box5 {
+                background-color: brown;
+            }
+            #box6 {
+                background-color: crimson;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="box"></div>
+        <div id="box2"></div>
+        <div id="box3"></div>
+        <div id="box4"></div>
+        <div id="box5"></div>
+        <div id="box6"></div>
+        <script>
+            /* function Drag(id) {
+                this.oBox = document.getElementById(id);
+                //用一个变量保存实例化对象
+                var _this = this;
+
+                //给元素绑定鼠标按下事件
+                this.oBox.onmousedown = function (e) {
+                    //因为鼠标按下后的逻辑每一个拖拽都是一样，所以可以封装一个方法放在原型对象上
+                    //只有实例化对象才能调用原型对象上的down方法
+                    _this.down(e);
+                };
+            }
+            Drag.prototype.down = function (e) {
+                //把鼠标按下的逻辑写在这个位置
+                //获取鼠标按下的时候 offsetX和offsetY
+                this.mouseToBox = {
+                    x: e.offsetX,
+                    y: e.offsetY
+                }
+                //原型对象上的方法的this一定指向实例化对象
+                var _this = this;
+                //绑定鼠标移动事件
+                document.onmousemove = function (e) {
+                    _this.move(e);
+                }
+
+                document.onmouseup = function () {
+                    _this.up();
+                }
+            }
+
+            Drag.prototype.move = function (e) {
+                var oBoxLocation = {
+                    x: e.clientX - this.mouseToBox.x,
+                    y: e.clientY - this.mouseToBox.y
+                }
+
+                //赋值
+                this.oBox.style.left = oBoxLocation.x + "px";
+                this.oBox.style.top = oBoxLocation.y + "px";
+            }
+
+            Drag.prototype.up = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            } */
+
+            function Drag(id) {
+                //获取元素
+                this.oBox = document.getElementById(id);
+                // console.log(this);
+                var _this = this;
+                //将不公有的属性写在构造函数中
+                //将公有的属性方法写在原型对象中
+                // console.log(_this);
+                this.oBox.onmousedown = function (e) {
+                    _this.down(e);
+                };
+            }
+
+            Drag.prototype.down = function (e) {
+                //获取当前的位置
+                var nowLocation = {
+                    x: e.offsetX,
+                    y: e.offsetY,
+                };
+                // console.log(this);
+                var _this = this;
+                document.onmousemove = function (e) {
+                    e.preventDefault();
+                    var location = {
+                        x: e.clientX - nowLocation.x,
+                        y: e.clientY - nowLocation.y,
+                    };
+                    //判断临界值
+                    if (location.x <= 0) {
+                        location.x = 0;
+                    } else if (
+                        location.x >=
+                        document.documentElement.clientWidth -
+                            _this.oBox.clientWidth
+                    ) {
+                        location.x =
+                            document.documentElement.clientWidth -
+                            _this.oBox.clientWidth;
+                    }
+                    if (location.y <= 0) {
+                        location.y = 0;
+                    } else if (
+                        location.y >=
+                        document.documentElement.clientHeight -
+                            _this.oBox.clientHeight
+                    ) {
+                        location.y =
+                            document.documentElement.clientHeight -
+                            _this.oBox.clientHeight;
+                    }
+
+                    _this.oBox.style.left = location.x + "px";
+                    _this.oBox.style.top = location.y + "px";
+                };
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+            };
+            /* var oBox = document.getElementById("box");
+            document.onclick = function (e) {
+                var location = {
+                    x: e.clientX - e.offsetX,
+                    y: e.clientY - e.offsetY,
+                };
+                console.log(e.clientX);
+                console.log(e.offsetX);
+            }; */
+            new Drag("box");
+            new Drag("box2");
+            new Drag("box3");
+            new Drag("box4");
+            new Drag("box5");
+            new Drag("box6");
+        </script>
+    </body>
+</html>

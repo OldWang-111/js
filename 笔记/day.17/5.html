@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        constructor(构造器):
+            -想要后去一个对象是被谁实例化的(也就是获取一个对象的构造函数)余姚使用constructor
+            -constructor存在在构造函数的原型对象上
+            -任意对象都是实例化出来的,所以任意对象都可以找到构造函数的原型对象,所以每一个对象都可以调用constructor属性
+            -构造函数的prototype指向其原型对象,原型对象的constructor指向其构造函数
+
+
+        */
+      /* console.log([].constructor);
+      console.log({}.constructor);
+      console.log(Array.prototype); */
+
+      // A instanceof B;
+      //判断B的显示原型在不在A的原型链上,如果在返回true 否则返回false
+
+      //封装instanceof
+      function fn(a, b) {
+        //先获取B 的原型对象
+        var _B = b.prototype;
+        var _A = a.__proto__;
+        while (_A) {
+          if (_A === _B) {
+            return true;
+          }
+          _A = _A.__proto__;
+        }
+        return false;
+      }
+      function Foo() {}
+      var f1 = new Foo();
+      console.log(fn(f1, Foo));
+      console.log(fn(f1, Object));
+      console.log(fn(f1, Function));
+      console.log(fn(Object, Foo));
+      console.log(fn(Function, Foo));
+      console.log(fn(Function, Object));
+    </script>
+  </body>
+</html>

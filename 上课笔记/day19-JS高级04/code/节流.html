@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #box {
+                width: 600px;
+                height: 600px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+        <script>
+            function center(e) {
+                console.log(this);
+                console.log(123);
+                console.log(e);
+            }
+            var oBox = document.getElementById("box");
+            oBox.onmousemove = jl(center, 300);
+
+            /* function jl() {
+                //初始化一个时间
+                var timer = 0;
+                return function () {
+                    var lastTime = +new Date();
+                    if (lastTime - timer < 300) {
+                        return;
+                    }
+                    console.log("123");
+                    timer = lastTime;
+                    console.log(this);
+                    // console.log(lastTime);
+                };
+            }
+            // console.log(document.onmousemove) */
+            /* function jl(fn, time) {
+                var nowTime = 0;
+                return function () {
+                    //获取当前的时间
+                    var nextTime = +new Date();
+                    // console.log(nextTime);
+                    if (nextTime - nowTime < time) {
+                        return;
+                    }
+                    nowTime = nextTime;
+                    //arguments[0]是当前的事件函数的event对象
+                    fn.call(this, arguments[0]);
+                };
+            } */
+        </script>
+    </body>
+</html>

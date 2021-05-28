@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="num">本金</label><input type="text" id="num" />
+    <label for="lx">年利润</label><input type="text" id="lx" />
+    <button type="button" id="but">查看</button>
+    <script>
+      /* function fn() {
+        var userName = prompt("请输入账号");
+        var userPass = prompt("请输入密码");
+        if (userName !== "laowang" || userPass !== "12345678") {
+          confirm("账号或密码错误请重新输入");
+          fn();
+        }
+      }
+      fn(); */
+      var oBut = document.getElementById("but");
+      oBut.onclick = function () {
+        var userNum = document.getElementById("num").value;
+        var userLx = document.getElementById("lx").value;
+        var nowNum = userNum * 2;
+        var Nian = 0;
+        while (userNum < nowNum) {
+          userNum = userNum * userLx;
+          Nian++;
+        }
+        alert(Nian+"年")
+      };
+    </script>
+  </body>
+</html>
